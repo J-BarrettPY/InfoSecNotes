@@ -132,10 +132,10 @@ Egress – Traffic that begins inside a network and proceeds through its routers
 Ingress – Makes internet traffic traceable to its source. 
 
 ## Social Engineering
-True – Social engineering is a method used to gain access to data, systems, or networks, primarily through misrepresentation.
-False – This technique typically relies on the trusting nature of the person who is attacking.
-True – The attacker will ask a number or questions in an attempt to identify possible avenues to exploit during this attack.
-True – These attacks can be perpetrated in person, through email, or via phone. 
+- True – Social engineering is a method used to gain access to data, systems, or networks, primarily through misrepresentation.
+- False – This technique typically relies on the trusting nature of the person who is attacking.
+- True – The attacker will ask a number or questions in an attempt to identify possible avenues to exploit during this attack.
+- True – These attacks can be perpetrated in person, through email, or via phone. 
 
 
 
