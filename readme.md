@@ -115,13 +115,19 @@ When evaluating the employee attack surface, consider the following:
 ## Performing an Attack Surface Analysis
 An attack surface analysis helps to identify the attack surface that an organization may be susceptible to. Once completed, the attack surface analysis can be used to determine how to reduce the attack surface. 
 When analyzing a network, the first priority is to determine the security boundaries within an organization. As a minimum, **an organization should have an internal network, a DMZ, and the Internet.** 
+
 However, when an organization has multiple sites, or multiple data centers, the organization will also have individual sites, multiple DMZs, and multiple Internet connections. A good place to determine security boundaries is to look at the organization’s network documents. Ensure that the organization has proper documentation, which includes network diagrams.
+
 After determining the security boundaries, the next step is to determine everything that connects at those security boundaries. Typically, this includes routers and firewalls, but it might also include some level-3 switches. Next, look at the security mechanisms used for the routers, firewalls, and switches and any security rules associated with those security mechanisms. 
+
 While network ingress filtering makes internet traffic traceable to its source, egress filtering helps ensure that unauthorized or malicious traffic never leaves the internal network. Inter-workload communications should remain internal; they should not traverse the perimeter. 
+
 Review egress and ingress traffic on regular basis. When examining, look at the source and target addresses as well as the ports used. 
 In addition to examining egress and ingress traffic, analyze traffic to and from critical systems or systems that contain confidential information. 
+
 Test to identify open ports, analyze traffic patterns, such as traffic that is encrypted and traffic that is not encrypted. This will help determine which traffic is essential and which traffic could easily be captured. 
 To identify application attack services, assess all running network services and applications that communicate with other computers. 
+
 When evaluating servers, review administrative accounts from time to time to ensure that proper access is provided to the right people. 
 
 ## Egress vs Ingress
@@ -132,10 +138,10 @@ Egress – Traffic that begins inside a network and proceeds through its routers
 Ingress – Makes internet traffic traceable to its source. 
 
 ## Social Engineering
-- True – Social engineering is a method used to gain access to data, systems, or networks, primarily through misrepresentation.
-- False – This technique typically relies on the trusting nature of the person who is attacking.
-- True – The attacker will ask a number or questions in an attempt to identify possible avenues to exploit during this attack.
-- True – These attacks can be perpetrated in person, through email, or via phone. 
+-	True – Social engineering is a method used to gain access to data, systems, or networks, primarily through misrepresentation.
+-	False – This technique typically relies on the trusting nature of the person who is attacking.
+-	True – The attacker will ask a number or questions in an attempt to identify possible avenues to exploit during this attack.
+-	True – These attacks can be perpetrated in person, through email, or via phone. 
 
 
 
