@@ -132,10 +132,10 @@ When evaluating servers, review administrative accounts from time to time to ens
 
 ## Egress vs Ingress
 
-Ingress – Traffic that originates from outside the network’s routers and proceeds toward a destination inside the network.
-Egress – Helps ensure that unauthorized or malicious traffic never leaves the internal networks.
-Egress – Traffic that begins inside a network and proceeds through its routers to its destination somewhere outside of the network.
-Ingress – Makes internet traffic traceable to its source. 
+- Ingress – Traffic that originates from outside the network’s routers and proceeds toward a destination inside the network.
+-	Egress – Helps ensure that unauthorized or malicious traffic never leaves the internal networks.
+-	Egress – Traffic that begins inside a network and proceeds through its routers to its destination somewhere outside of the network.
+-	Ingress – Makes internet traffic traceable to its source. 
 
 ## Social Engineering
 -	True – Social engineering is a method used to gain access to data, systems, or networks, primarily through misrepresentation.
