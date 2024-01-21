@@ -324,6 +324,19 @@ Review:
 -	Threat Modeling – A procedure for optimizing network security by identifying vulnerabilities, identifying their risks, and defining countermeasures to prevent or mitigate the effects of the threats to the system.
 -	Keylogger – A software or hardware device that captures passwords and other critical data directly from the keyboard. 
 
+# Understanding Authentication, Authorization, and Account
+
+## Starting Security with Authentication
+In the realm of IT security, the AAA (Authentication, Authorization, and Accounting) acronym is a model for access control.
+-	Authentication is the process of identifying an individual, usually based on a user name and password.
+-	Authorization is the process of giving individuals access to system objects based on their identity.
+-	Accounting, also known as auditing, is the process of keeping track of a user’s activity while accessing the network resources, including the amount of time spent in the network, the services accessed while there, and the amount of data transferred during the session.
+-	Nonrepudiation prevents one party from denying actions they carry out. If proper authentication, authorization, and accounting have been established, a person cannot deny their own actions. 
+
+A logon is the process whereby a user is recognized by a computer system or network so that they can begin a session. A user can authenticate using one or more of the following methods:
+-	What a user knows, such as a password or personal identification number (PIN).
+-	What a user owns or possesses, such as a passport, smart card, or ID card.
+-	Who a user is, based on biometric factors such as fingerprints, retinal scans, voice input, or other forms. 
 
 
 
