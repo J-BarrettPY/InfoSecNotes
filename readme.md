@@ -338,6 +338,85 @@ A logon is the process whereby a user is recognized by a computer system or netw
 -	What a user owns or possesses, such as a passport, smart card, or ID card.
 -	Who a user is, based on biometric factors such as fingerprints, retinal scans, voice input, or other forms. 
 
+When two or more authentication methods are used to authenticate someone, a multifactor authentication system is being implemented. A system that uses two authentication methods such as smart cards and a password can be referred to as two-factor authentication.
+
+Review:
+-	Multifactor authentication systems are when two or more authentications methods (what a user knows, what a user owns, and who a user is) are being implemented.
+-	Two-factor authentication is a system in which two authentication methods are being used.
+
+## Authentication Based on What a User Knows
+The most common method of authentication with computers and networks is the password. A password is a secret series of characters that enables a user to access a file, computer, or program. 
+
+Hackers will try to crack passwords by first trying obvious passwords, including name of spouse or children, birthdays, etc. Then they will try common passwords. The hackers will try brute force attacks, which consist of trying as many combinations of characters as time and money permit.
+
+A subnet of the brute force attack is the dictionary attack, in which all words in one or more dictionaries are tested. Lists of common passwords are also typically tested. This is why its important to have lengthy and strong complex passwords with at least 14 characters in length.
+
+However, for some people, remembering long passwords is cumbersome, so they may start writing their passwords on a piece of paper near their desk. In these situations, you should start looking for other forms of authentication, such as a smart card or biometrics.
+
+Passwords should be changed regularly. Password policies should be in place to enforce minimum number of characters, specify if the password is a complex password, state how often a user can reuse a password, and so on.
+
+Passwords might be the easiest and most popular authentication method, but they also have significant disadvantages because they can be stolen, spoofed, forgotten, and so on. For example, a hacker might call the IT department pretending to be someone else and have the department reset the password for the hacker. Therefore, establishing secure processes to reset passwords for users is critical.
+
+When resetting passwords, there must be a method to identify the user asking for a password to be changed. Do not send the password through email – meeting with he person and asking for identification is a possible solution. Another solution would be to call back and leave the password on a person’s voice mail, so that a user will need to provide a PIN to access, or the password could be sent to a user’s manager or administrative assistant. 
+
+One method of establishing a self-service password service is where a user’s identity is verified by asking questions and comparing the answers to previously stored responses, such as a person’s birthday, name of their favorite movie, name of a pet, and so on. However, these can be relatively easily guessed by an attacker, discovered through low-effort research. 
+
+## Using a Personal Identification Number (PIN)
+A personal identification number (PIN) is a secret numeric password shared between a user and a system that can be used to authenticate the user to the system. Because it only consists of digits and is relatively short (usually four digits), it is used for relatively low security scenarios like gaining access to the system or in combination with another method of authentication.
+
+## Authentication Based on What a User Owns or Possesses
+Another type of authentication is based on what a user owns or possesses. The most common examples are the digital certificate, smart card, and security token.
+
+The digital certificate is an electronic document that contains an identity such as a user or organization and a corresponding public key. Think of a digital certificate as a drivers license or passport that contains a user’s photograph and thumbprint, so that there is no doubt about the user’s identity.
+
+A smart card is a pocket-sized card with embedded integrated circuits consisting of non-volatile memory storage components, and perhaps, dedicated security logic. Non-volatile memory is memory that does not forget its contents when power is discontinued. Smart cards can contain digital certificates to prove the identity of someone carrying the card and may also contain permissions and access information.
+
+Because a smart card can be stolen, some smart cards will not have any markings on them, so that they cannot be easily identified as to what they can open. In addition, many organizations will use a password or PIN in combination with the smart card.
+
+A Security Token (or sometimes a hardware token, hard token, authentication token, USB token, cryptographic token, or key fob) is a physical device that an authorized user of computer services is given to ease authentication. Hardware tokens are typically small enough to be carried in a pocket and are often designed to attach to a user’s keychain. Some of these security tokens include a USB connector, RFID functions, or Bluetooth wireless interface to enable transfer of a generated key number sequence to a client system.
+
+Some security tokens may also include additional technology such as a static password or digital certificate built into the security token, much like a smart card. Other security tokens may automatically generate a second code that will have to be entered to get authenticated.
+
+## Devices Only Running Trusted Applications
+The process involves protecting systems with software which only allows the user of applications which the administrators have approved.
+
+This is by far the STRONGEST option.
+
+A common tool used in Windows, is called Device Guard.
+Device Guard uses code integrity policies to lock devices so that they can only run trusted apps. Code integrity checks can be isolated from the Windows kernel. This can mitigate the risk of possible malicious code attacks.
+
+## Authentication Based on a User’s Physical Traits
+Biometrics is an authentication method that identifies and recognizes people based on voice recognition or a physical trait such as a fingerprint, face recognition, iris recognition, or retina scan. Many mobile computer include a fingerprint scanner, and it is relatively easy to install biometric devices at doors and cabinets to ensure that only authorized people will enter a secure area.
+
+When selecting a biometric method, consider its performance, difficulty, reliability, acceptance, and cost. In addition, look at the following issues:
+-	False rejection rate (false negative): Authorized users who are incorrectly denied access.
+-	False acceptance rate (false positive): Unauthorized users who are incorrectly granted access.
+
+## Introducing RADIUS and TACACS+
+Remote Authentication Dial-In User Service (RADIUS) and Terminal Access Controller Access-Control System Plus (TACACS+) are two protocols that provide centralized authentication, authorization, and accounting management for computers to connect to and use a network service. 
+
+The RADIUS or TACACS+ server resides on a remote system and responds to queries from clients such as VPN clients, wireless access points, routers, and switches. The server then authenticates a user name/password combination (authentication), determines if a user can connect to the client (authorization), and logs the connection (accounting).
+
+RADIUS is a mechanism that allows authentication of dial-in and other network connections including modem dial-up, wireless access points, VPNs, and web servers. RADIUS has been implemented by most of the major operating systems, including Windows.
+
+In Windows Server 2008, Network Policy Server (NPS) can be used as a Remote Authentication Dial-In User Service (RADIUS) server to perform authentication, authorization, and accounting for RADIUS clients. It can be configured to use Microsoft Windows NT Server 4.0 domain, an Active Directory Domain Services (ADDS) domain, or the local Security Accounts Manager (SAM) user accounts database to authenticate user credentials for connection attempts. 
+
+Another competing centralized AAA server is TACACS+, which was developed by Cisco. When designing TACACS+, Cisco incorporated much of the existing functionality of RADIUS and extended it to meet their needs. From a feature viewpoint, TACACS+ can be considered an extension of RADIUS.
+
+Review:
+- What you know – usernames, passwords, PINs
+- What you have – smart card, token, digital certificate
+- Who you are – biometrics, fingerprints, voice recognition, retinal scan
+- Passwords should be complex with at least 14 characters in length.
+- If passwords become cumbersome for employees, start using smart cards or biometrics.
+- Passwords should be changed regularly.
+- Policies should be in place to enforce complex passwords, how often a user must change their password, state how long a user can reuse a password, and so on.
+- Create a password resetting process which requires the user’s identity is verified.
+- Do not send passwords via email. Leave password on user’s voicemail, which will require a PIN to access.
+- Only running trusted applications is considered the strongest lockdown security option.
+- Device Guard: Windows tool which uses code integrity policies to lock devices so they can only run trusted apps.
+
+
 
 
 
