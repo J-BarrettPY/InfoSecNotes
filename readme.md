@@ -403,6 +403,27 @@ In Windows Server 2008, Network Policy Server (NPS) can be used as a Remote Auth
 
 Another competing centralized AAA server is TACACS+, which was developed by Cisco. When designing TACACS+, Cisco incorporated much of the existing functionality of RADIUS and extended it to meet their needs. From a feature viewpoint, TACACS+ can be considered an extension of RADIUS.
 
+## Running Programs as an Administrator (runas)
+Because administrators have full access to a computer or network, it is recommended that a standard non-administrator user should perform most tasks, such as reading reports and sending email. Then, to perform administrative tasks, use the `runas` command or built-in options that are included with Windows operating system.
+
+An example of using the runas command to run the widget.exe as the admin account:
+```
+runas /user:admin /widget.exe
+```
+
+Review:
+True or false:
+
+- The Radius or TACACS+ server resides on a remote system and responds to queries from servers.
+- RADIUS is a mechanism that allows authentication of dial-in and other network connections.
+- From a feature viewpoint, RADIUS can be considered an extension of TACACS+.
+- TACACS+ stands for Terminal Access Controller Access-Control System Plus.
+
+Answers:
+F T F T 
+
+
+
 Review:
 - What you know – usernames, passwords, PINs
 - What you have – smart card, token, digital certificate
@@ -415,6 +436,7 @@ Review:
 - Do not send passwords via email. Leave password on user’s voicemail, which will require a PIN to access.
 - Only running trusted applications is considered the strongest lockdown security option.
 - Device Guard: Windows tool which uses code integrity policies to lock devices so they can only run trusted apps.
+-RADIUS – Remote Authentication Dial-In User Service. Used to authenticate outside connections from dial-ins, VPNs, web servers, and wireless access points. 
 
 
 
