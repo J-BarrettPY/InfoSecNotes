@@ -640,6 +640,103 @@ The registry is split into several logical sections, often referred to as hives,
 -	HKEY_USERS: Contains subkeys corresponding to the HKEY_CURRENT_USER keys for each user profile actively loaded on the machine.
 -	HKEY_CURRENT_CONFIG: Contains information gathered at runtime. Information stored in this key is not permanently stored on disk, but rather regenerated at the boot time.
 
+# Using Encryption to Protect Data
+Encryption is the process of converting data into a format that cannot be read by another user. Once a user has encrypted a file, it automatically remains encrypted when the file is stored on disk. Decryption is the process of converting data from encrypted format back to its original format.
+
+A key, which can be thought of as a password, is applied mathematically to plain text to provide cipher or encrypted text. A different key produces a different encrypted out.
+
+Similar to a password, the longer the key (usually expressed in bits), the more secure it is. Today, 128-bit keys are commonly used and considered very strong.
+
+## Types of Encryption
+
+## Symmetric Encryption
+Symmetric encryption uses a single key to encrypt and decrypt data. Therefore, it is also referred to as secret-key, single-key, shared-key, and private-key encryption. To use symmetric key algorithms, you need to initially exchange the secret key with both the sender and the receiver.
+
+Symmetric-key ciphers can be divided into block ciphers and stream ciphers. A block cipher takes a block of plain text and a key, and outputs a block of ciphertext of the same size. Two popular block ciphers include the Data Encryption Standard (DES) and the Advanced Encryption Standard (AES), which have been designated cryptography standards by the US government.
+
+The Data Encryption Standard was selected by the National Bureau of Standards as an official Federal Information Processing Standard (FIPS) for the United States in 1976. It is based on a symmetric-key algorithm that uses a 56-bit key.
+
+Because DES is based on a relatively small 56-bit key size, DES was subject to brute force attacks. Therefore, without designing a completely new block cipher algorithm, Triple DES (3DES) was developed, which uses three independent keys. DES and the more secure 3DES are still popular and used across a wide range of applications including ATM encryption, email privacy, and secure remote access.
+
+A more secure encryption option would be Advanced Encryption Standard (AES). The standard comprises three block ciphers, AES-128, AES-192, and AES-256 used on 128-bit blocks, with key sizes of 128, 192, 256 bits. The AES ciphers have been analyzed extensively and are now used worldwide, including being used with WI-FI Protected Access 2 (WPA2) wireless encryption. 
+
+Stream ciphers create an arbitrarily long stream of key material, which is combined with plain text bit-by-bit or character-by-character. RC4 is a widely used stream cipher, used in Secure Sockets Layer (SSL) and Wired Equivalent Privacy (WEP). While RC4 is simple and is known for its speed, it can be vulnerable if the key stream is not discarded, nonrandom or related keys are used, or a single key stream is used twice.
+
+## Asymmetric Encryption
+
+Asymmetric encryption uses two keys for encryption. Asymmetric key, also known as public key cryptography, uses two mathematically-related keys. One key is used to encrypt the data, while the second key is used to decrypt the data. Unlike symmetric key algorithms, it does not require a secure initial exchange of one or more secret keys to both sender and receiver. Instead, you can make the public key known to anyone and use the other key to encrypt or decrypt the data. The public key could be sent to someone or could be published within a digital certificate via a Certificate Authority (CA). Secure Sockets Layer (SSL)/Transport Layer Security (TLS) and Pretty Good Privacy (PGP) use asymmetric keys. Two popular asymmetric encryption protocols are Diffie-Hellman and RSA.
+
+For example, say you want a partner to send you data. Therefore, you send the partner the public key. The partner will then encrypt the data with the key and send you the encrypted message. Then, you use the private key to decrypt the message. If the public key falls into someone else’s hands, they still could not decrypt the message.
+
+## Hash Function Encryption
+The last type of encryption is the hash function. Different from the symmetric and asymmetric algorithms, a hash function is meant as a one-way encryption. This means that after data has been encrypted, it cannot be decrypted. It can be used to encrypt a password that is stored on disk and for digital signatures. Anytime a password is entered, the same hash calculation is performed on the entered password and it is compared to the hash value of the password stored on disk. If the two passwords match, the user must have typed the correct password. This avoids having to store the passwords in a readable format, where a hacker might try to access them.
+
+Review:
+
+Symmetric encryption: Same key is used to encrypt and decrypt the data.
+Examples: DES (Data Encryption Standard), 3DES (Triple DES), and AES (Advanced Encryption Standard).
+
+Block ciphers: A block of plaintext with a key becomes a block of cipher text.
+Stream ciphers: Bit-by-bit encryption.
+
+Asymmetric Encryption: One key encrypts, while another key decrypts the data.
+Examples: SSL (Secure Sockets Layer), TLS (Transport Layer Security), PGP (Pretty Good Privacy)
+
+Hash function:
+One-way encryption with no decryption.
+Used to verify passwords.
+
+## Introducing Public Key Infrastructure
+A public key infrastructure (PKI) is a system consisting of hardware, software, policies, and procedures that create, manage, distribute, use, store, and revoke digital certificates. Within the PKI, the certificate authority (CA) binds a public key with respective user identities and issues digital certificates containing the public key.
+
+A certificate revocation list (CRL) is a list of certificates (or more specifically, a list of serial numbers for certificates) that have been revoked or are no longer valid, and therefore should not be relied upon. 
+
+## Digital Certificate 
+A digital certificate is an electronic document that contains a person’s or organization's name, a serial number, expiration date, a copy of the certificate holder’s public key )used for encrypting messages and to create digital signatures), and the digital signature of the CA that assigned the digital certificate so that a recipient can verify that the certificate is real. 
+
+## Digital Signature 
+A digital signature is a mathematical scheme that is used to demonstrate the authenticity of a digital message of document. It is also used to confirm that the message or ducment has not been modified. 
+
+## Secure Sockets Layer (SSL) and Transport Layer Security (TLS)
+When surfing the internet, there are time when it is necessary to transmit private data over the internet such as credit card numbers, social security numbers, and so on. During these times, use SSL over http (https) to encrypt the data sent over the internet. By convention, URLs that require an SSL connection start with https: instead of http:.
+
+SSL is short for Secure Sockets Layer. It uses a cryptographic system with two keys to encrypt data – a public key known to everyone and a private or secret key known only to the recipient of the message. The public key is published in a digital certificate, which also confirms the identity of the web server.
+Review:
+
+Public keys are often used at the beginning of a data transmission. Such as an e-commerce website, a public key would be sent by a web server to initiate a transaction.
+
+Private keys are often used to decrypt data. The private key is often stored on a web server, and only that server can decrypt the data.
+
+## Encrypting Email
+-	Secure/Multipurpose Internet Mail Extensions (S/MIME)
+-	Pretty Good Privacy (PGP)
+
+Secure/Multipurpose Internet Mail Extensions (S/MIME) is the secure version of MIME, used to embed objects within email messages. 
+
+Pretty Good Privacy (PGP) is a freeware email encryption system that uses symmetrical and asymmetrical encryption. Message is encrypted with a public key and a session key. Upon receipt, a private key extracts the session key and then both keys decrypt the message.
+
+## Encrypting Files with EFS
+Windows 10 offers two file encrypting technologies – Encrypting File System (EFS) and BitLocker Drive Encryption. EFS protects individual files or folders, while BitLocker protects entire drives.
+
+# Knowledge Check
+
+Symmetric: Uses a single key to encrypt and decrypt data.
+Asymmetric: Uses two mathematically-related keys.
+Hash Function: A one-way encryption.
+
+True or false:
+-	CA is a list of certificates that have been revoked or are no longer valid, and therefore should not be relied upon.
+-	Within the PKI, the certificate authority binds a public key with respective user identities and issues digital certificates containing the public key.
+-	The RA, which may or may not be the same server as the CA, is used to distribute keys, accept registrations for the CA, and validate identities.
+-	The RA distributes digital certificates.
+
+F,T,T,F
+
+A ___________ is a mathematical scheme used to demonstrate the authenticity of a digital message or used to confirm that the message or document has not been modified.
+
+A: digital signature
+
+
 
 
 # Chapter Review:
@@ -672,6 +769,7 @@ The registry is split into several logical sections, often referred to as hives,
 -A permission defines the type of access that is granted to an object (an object can be identified with a security identifier) or object attribute.
 - NTFS permissions allow you to control which users and groups can gain access to files and folders on an NTFS volume.
 - If you do both a share and a give out file system permissions using the Security tab, the most restrictive permission wins.
+
 -Steps to share a folder:
 -	Right click the drive or folder, choose Properties, click the Advanced Sharing button.
 -	Select the Share this folder check box.
@@ -680,10 +778,29 @@ The registry is split into several logical sections, often referred to as hives,
 -	By default, Everyone is given Allow Read permission. If you don’t want everyone to access the folder, remove Everyone and assign additional permissions or add additional people.
 -	After the users and groups have been added with the proper permissions, close all the windows.
 -The registry is the one-stop shop database that stores everything about a system, and its applications.
-
 -Registry has “hives’:
 -	HKEY_CLASSES_ROOT: Stores information about registered applications, such as file association that tells which default program opens a file with certain extension.
 -	HKEY_CURRENT_USER: Stores settings that are specific to the currently logged-on user. When a user logs off, the HKEY_CURRENT_USER is saved to HKEY_USERS.
 -	HKEY_LOCAL_MACHINE: Stores settings that are specific to the local computer.
 -	HKEY_USERS: Contains subkeys corresponding to the HKEY_CURRENT_USER keys for each user profile actively loaded on the machine.
 -	HKEY_CURRENT_CONFIG: Contains information gathered at runtime. Information stored in this key is not permanently stored on disk, but rather regenerated at the boot time.
+
+-Symmetric encryption: Same key is used to encrypt and decrypt the data.
+Examples: DES (Data Encryption Standard), 3DES (Triple DES), and AES (Advanced Encryption Standard).
+
+-Block ciphers: A block of plaintext with a key becomes a block of cipher text.
+-Stream ciphers: Bit-by-bit encryption.
+
+-Asymmetric Encryption: One key encrypts, while another key decrypts the data.
+Examples: SSL (Secure Sockets Layer), TLS (Transport Layer Security), PGP (Pretty Good Privacy)
+-Hash function:
+One-way encryption with no decryption.
+Used to verify passwords.
+-URLs that require an SSL connection start with https: instead of http:
+-Public keys are often used at the beginning of a data transmission. Such as an e-commerce website, a public key would be sent by a web server to initiate a transaction.
+-Private keys are often used to decrypt data. The private key is often stored on a web server, and only that server can decrypt the data.
+-Secure/Multipurpose Internet Mail Extensions (S/MIME) is the secure version of MIME, used to embed objects within email messages. 
+-Pretty Good Privacy (PGP) is a freeware email encryption system that uses symmetrical and asymmetrical encryption. Message is encrypted with a public key and a session key. Upon receipt, a private key extracts the session key and then both keys decrypt the message.
+
+
+
