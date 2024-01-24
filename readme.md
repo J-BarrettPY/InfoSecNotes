@@ -680,6 +680,7 @@ The registry is split into several logical sections, often referred to as hives,
 -	By default, Everyone is given Allow Read permission. If you don’t want everyone to access the folder, remove Everyone and assign additional permissions or add additional people.
 -	After the users and groups have been added with the proper permissions, close all the windows.
 -The registry is the one-stop shop database that stores everything about a system, and its applications.
+
 -Registry has “hives’:
 -	HKEY_CLASSES_ROOT: Stores information about registered applications, such as file association that tells which default program opens a file with certain extension.
 -	HKEY_CURRENT_USER: Stores settings that are specific to the currently logged-on user. When a user logs off, the HKEY_CURRENT_USER is saved to HKEY_USERS.
