@@ -739,6 +739,7 @@ A: digital signature
 
 
 
+
 # Chapter Review:
 - What you know – usernames, passwords, PINs
 - What you have – smart card, token, digital certificate
@@ -785,22 +786,23 @@ A: digital signature
 -	HKEY_USERS: Contains subkeys corresponding to the HKEY_CURRENT_USER keys for each user profile actively loaded on the machine.
 -	HKEY_CURRENT_CONFIG: Contains information gathered at runtime. Information stored in this key is not permanently stored on disk, but rather regenerated at the boot time.
 
--Symmetric encryption: Same key is used to encrypt and decrypt the data.
+-	Symmetric encryption: Same key is used to encrypt and decrypt the data.
 Examples: DES (Data Encryption Standard), 3DES (Triple DES), and AES (Advanced Encryption Standard).
 
--Block ciphers: A block of plaintext with a key becomes a block of cipher text.
--Stream ciphers: Bit-by-bit encryption.
+- Block ciphers: A block of plaintext with a key becomes a block of cipher text.
+- Stream ciphers: Bit-by-bit encryption.
 
--Asymmetric Encryption: One key encrypts, while another key decrypts the data.
+-	Asymmetric Encryption: One key encrypts, while another key decrypts the data.
 Examples: SSL (Secure Sockets Layer), TLS (Transport Layer Security), PGP (Pretty Good Privacy)
--Hash function:
+-	Hash function:
 One-way encryption with no decryption.
 Used to verify passwords.
--URLs that require an SSL connection start with https: instead of http:
--Public keys are often used at the beginning of a data transmission. Such as an e-commerce website, a public key would be sent by a web server to initiate a transaction.
--Private keys are often used to decrypt data. The private key is often stored on a web server, and only that server can decrypt the data.
--Secure/Multipurpose Internet Mail Extensions (S/MIME) is the secure version of MIME, used to embed objects within email messages. 
--Pretty Good Privacy (PGP) is a freeware email encryption system that uses symmetrical and asymmetrical encryption. Message is encrypted with a public key and a session key. Upon receipt, a private key extracts the session key and then both keys decrypt the message.
+- URLs that require an SSL connection start with https: instead of http:
+- Public keys are often used at the beginning of a data transmission. Such as an e-commerce website, a public key would be sent by a web server to initiate a transaction.
+- Private keys are often used to decrypt data. The private key is often stored on a web server, and only that server can decrypt the data.
+- Secure/Multipurpose Internet Mail Extensions (S/MIME) is the secure version of MIME, used to embed objects within email messages. 
+- Pretty Good Privacy (PGP) is a freeware email encryption system that uses symmetrical and asymmetrical encryption. Message is encrypted with a public key and a session key. Upon receipt, a private key extracts the session key and then both keys decrypt the message.
+- A digital signature is a mathematical scheme used to demonstrate the authenticity of a digital message or used to confirm that the message or document has not been modified.
 
 
 
