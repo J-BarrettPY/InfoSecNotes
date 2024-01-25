@@ -341,7 +341,7 @@ A logon is the process whereby a user is recognized by a computer system or netw
 When two or more authentication methods are used to authenticate someone, a multifactor authentication system is being implemented. A system that uses two authentication methods such as smart cards and a password can be referred to as two-factor authentication.
 
 Review:
--	Multifactor authentication systems are when two or more authentications methods (what a user knows, what a user owns, and who a user is) are being implemented.
+-	Multi-factor authentication systems are when two or more authentications methods (what a user knows, what a user owns, and who a user is) are being implemented.
 -	Two-factor authentication is a system in which two authentication methods are being used.
 
 ## Authentication Based on What a User Knows
@@ -736,11 +736,56 @@ A ___________ is a mathematical scheme used to demonstrate the authenticity of a
 
 A: digital signature
 
+# Understanding IPsec
+IP Security, more commonly known as IPsec, is a suite of protocols that provide a mechanism for data integrity, authentication, and privacy for the Internet Protocol. It is used to protect data that is sent between hosts on a network by creating secure electronic tunnels between two machines or devices and it can be used for remote access, VPN, server connections, LAN connections, or WAN connections. 
 
+IPsec was designed to provide interoperable, high quality, cryptographically-based security for IPv4 and IPv6, and it provides a comprehensive set of security services, including the following:
+-	Access control
+-	Connectionless data integrity checking
+-	Data origin authentication
+-	Replay detection and rejection
+-	Confidentiality using encryption
+-	Traffic flow confidentiality 
 
+There are a couple of modes and a couple of protocols available in IPsec, depending on whether they are implemented by the end hosts, such as the server, or implemented on the routers and the desired level of security. 
+-	Transport mode (host-to-host): In transport mode, only the data packet payload is encapsulated. Because the packet header is left intact, the original routing information is sued to transmit the data from sender to recipient.
+-	Tunnel mode (gateway-to-gateway or gateway-to-host): In the tunnel mode, the IP packet is entirely encapsulated and given a new header. The host/gateway specified in the new IP header decapsulates the packet. This is the mode used to secure traffic for remote access VPN connection from the remote host to the VPN concentrator on the internal network.
 
+The IPsec protocols are:
+-	Encapsulating Security Payload (ESP): Provides confidentiality, authentication, integrity, and anti-replay for the IP payload only, not the entire packet. ESP operates directly on top of IP.
+-	Authentication Header (AH): Provides authentication, integrity, and anti-replay for the entire packet (both the IP header and the data payload carried in the packet). It does not provide confidentiality, which means that it does not encrypt the payload.
+-	Internet Key Exchange (IKE): IKE is used to negotiate, create, and manage security associations (SA), which means that it is the protocol that establishes the secure communication channel between two networks. 
+
+## VPN
+Private connection over a public network.
+Client to site is the most common. Remote connecting to the company with a secure connection. 
+Site to site VPN. Two business connect to each other over a tunnel.
+Split tunnel: isolates traffic; which reroutes traffic away from the tunnel, and through the original internet connection. So you get the best of both worlds because you get your regular internet connection but still have the VPN connection so securing transmit data.
+
+# Knowledge Check
+-	ESP: Provides confidentiality, authentication, integrity, and anti replay for the IP payload only, not the entire packet.
+-	IKE: Used to negotiate, create, and manage security associations (SA).
+-	AH: Provides authentication, integrity, and anti-replay for the entire packet.
+
+-	MS-CHAP v2: Provides two-way authentication (mutual authentication)
+
+-	PAP: Least secure authentication and is not recommended.
+
+-	EAP: A universal authentication framework that supports password-based user or computer authentication.
+
+-	CHAP: A challenge-response authentication that uses the industry standard md5 hashing scheme to encrypt the response.
+
+## Auditing
+
+# Knowledge Check
+
+- Account logon: Determines whether the OS audits each time the computer validates an account’s credentials, such as account logon.
+-	Logon: Determines where the OS audits each instance of a user attempting to log on or log off the computer.
+-	Privilege use: Determines whether to audit each instance of a user exercising a user right.
+-	Object access: Determines whether the OS audits user attempts to access non-Active Directory objects, including NFTS files and folders and printers.
 
 # Chapter Review:
+
 - What you know – usernames, passwords, PINs
 - What you have – smart card, token, digital certificate
 - Who you are – biometrics, fingerprints, voice recognition, retinal scan
@@ -803,6 +848,70 @@ Used to verify passwords.
 - Secure/Multipurpose Internet Mail Extensions (S/MIME) is the secure version of MIME, used to embed objects within email messages. 
 - Pretty Good Privacy (PGP) is a freeware email encryption system that uses symmetrical and asymmetrical encryption. Message is encrypted with a public key and a session key. Upon receipt, a private key extracts the session key and then both keys decrypt the message.
 - A digital signature is a mathematical scheme used to demonstrate the authenticity of a digital message or used to confirm that the message or document has not been modified.
+- ESP: Provides confidentiality, authentication, integrity, and anti replay for the IP payload only, not the entire packet.
+- IKE: Used to negotiate, create, and manage security associations (SA).
+- AH: Provides authentication, integrity, and anti-replay for the entire packet.
+- MS-CHAP v2: Provides two-way authentication (mutual authentication)
+- PAP: Least secure authentication and is not recommended.
+- EAP: A universal authentication framework that supports password-based user or computer authentication.
+- CHAP: A challenge-response authentication that uses the industry standard md5 hashing scheme to encrypt the response.
 
-
-
+# Flashcards
+-	Access control list (ACL): A list of all users and groups that have access to an object.
+-	Accounting: Also known as auditing, is the process of keeping track of a user’s activity while access network resources, including the amount of time spent in the network, the services accessed while there, and the amount of data transferred during each session.
+-	Active Directory: Active Directory is a directory service technology created by Microsoft that provides a variety of network services, including Lightweight Directory Access Protocol (LDAP), Kerberos-based and single sign-on (SSO) authentication, DNS-based naming and other network information, and a central location for network administration and delegation of authority. 
+-	Administrative share: A shared folder typically used for administrative purposes.
+-	Asymmetric encryption: Also known as public key cryptography, uses two mathematically related keys for encryption.
+-	Auditing: Also known as accounting, is the process of keeping track of a user’s activity while access network resources, including the amount of time spent in the network, the services accessed while there, and the amount of data transferred during each session.
+-	Authentication: The process of identifying an individual, usually based on a user name and password.
+-	Authorization: The process of giving individuals access to system objects based on their identity.
+-	Biometrics: An authentication method that identifies and recognizes people based on physical traits, such as fingerprints, face recognition, iris recognition, retinal scans, and voice recognition.
+-	BitLocker To Go: A new feature in Windows 7 that enables users to encrypt removable USB devices, such as flash drives and external hard disks.
+-	Brute Force Attack: A type of attack the tries as many possible combinations of characters as time and money permit.
+-	Build-in groups: The default groups that are included within Windows or Active Directory.
+-	Certificate chain: Also known as the certification path, is a list of certificates used to authenticate an entity. It begins with the certificate of the entity and ends with the root CA certificate.
+-	Certificate revocation list (CRL): A list of certificates (or more specifically, a list of serial numbers for certificates) that have been revoked or are no longer valid and therefore should no be relied on.
+-	Computer accounts: A logical object that provides a means for authenticating and auditing a computer’s access to a Windows network, as well as its access to domain resources. 
+-	Decryption: The process of converting data from encrypted format back to its original format.
+-	Digital certificate: An electronic document that contains an identity, such as a user or organization name, along with a corresponding public key. Because a digital certificate is used to prove a person's identity, it can also be used for authentication.
+-	Digital signature: A mathematical scheme that is used to demonstrate the authenticity of a digital message or document.
+-	Domain controller: A Windows server that stores a replica of the account and security information of a domain and defines the domain boundaries. 
+-	Domain user: A user account stored on the domain controller that allows you to gain access to resources within the domain, assuming you have been granted permissions to access those objects.
+-	Effective permissions: Actual permissions when logging in and accessing a file or folder. They consist of explicit permissions plus any inherited permissions.
+-	Encryption: The process of converting data into a format that cannot be read by another user. 
+-	Explicit permission: Permissions granted directly to a file or folder.
+-	Group: A collection or list of user accounts or computer accounts.
+-	Hash function: A one-way encryption which means that after something has been encrypted with this method, it cannot be decrypted.
+-	Inherited permission: Permissions granted to a folder (parent object or container) that flows into child objects (subfolders or files) inside that folder.
+-	IP Security (IPsec): A suite protocols that provides a mechanism for data integrity, authentication, and privacy for the Internet Protocol. It is used to protect data that is sent between hosts on a network by creating secure electronic tunnels between two machines or devices.
+-	Kerberos: The default domain computer network authentication protocol, which allows hosts to prove their identity over a non-secure network in a secure manner.
+-	Key: Can be thought of as a password which is applied mathematically to plain text to provide cipher or encrypted text. Different keys produce different encrypted outputs.
+-	Local user account: A user account that is stored in the Security Account Manager (SAM) database on the local computer. 
+-	Member server: A server that is not running as a domain controller.
+-	Microsoft Passport: A two-factor authentication that consists of an enrolled device (such as a smartphone) and a Windows Hello (biometric) or PIN.
+-	Multifactor authentication: When two or more authentication methods are used to authenticate someone.
+-	Nonrepudiation: Prevents one party from denying the actions it has carried out.
+-	NTFS: The preferred file system for today’s Windows operating system.
+-	NFTS permissions: Permissions that allow you to control which users and groups can gain access to files and folder on an NTFS volume. 
+-	NTLM: The default authentication protocol for Windows NT, stand-alone computers that are not part of a domain, and situations in which you are authenticating to a server using an IP address.
+-	Organizational units (OUs): A container used in Active Directory to help organize objects within a domain and minimize the number of domains.
+-	Owner: An identity that controls an object including what permissions are set on the object and to whom permissions are granted.
+-	Permission: Defines the type of access that is granted to an object (an object can be identified with a security identifier) or object attribute.
+-	Personal identification number (PIN): A secret numeric password shared between a user and a system that can be used to authenticate the user to the system.
+-	Public key infrastructure: A system consisting of hardware, software, policies, and procedures that create, manage distribute, use, store, and revoke digital certificates.
+-	Registry: A central, secure database in which Windows stores all hardware configuration information, software configuration information, and system security policies.
+-	Right: Authorizes a user to perform certain actions on a computer, such as logging on to a system interactively or backing up files and directories on a system.
+-	Secure Sockets Layer (SSL): A cryptographic system that uses two keys to encrypt data, a public key known to everyone and a private or secret key known only to the recipient of the message.
+-	Security Account Manager (SAM): A local security database found on most Windows computers.
+-	Security token: A physical device that an authorized computer services user is given to ease authentication.
+-	Share permissions: The permissions assigned to shared folders or drives.
+-	Shared folder: The technology that allows access of data files over the network.
+-	Single sign-on (SSO): The technology that allows you to log on once and access multiple related but independent software systems without having to log on again.
+-	Smart card: A pocket-sized card with embedded integrated circuits consisting of non-volatile memory storage components and perhaps dedicated security logic.
+-	Symmetric encryption: Uses a single key to encrypt and decrypt data.
+-	Syslog: A standard for logging program messages that can be accessed by devices that would not otherwise have a method for communications.
+-	Trust Platform Module (TPM) chip: An international standard for a secure cryptoprocessor.
+-	User account: A logical object that enables a user to log on to a computer and domain.
+-	Virtual smart cards (VSCs): The cards that emulate the functionality of regular smart cards, but require a Trusted Platform Module (TPM) chip to protect the private keys.
+-	Windows Biometric Framework (WBF): Enables users to manage devices settings for biometric devices through Control Panel, provides support for managing device drivers, and manages Group Policy settings that can be used to enable, disable, or limit the use of biometric data for a local computer or domain. 
+-	Windows Hello: A Windows 10 biometric authentication system that uses a user’s face, iris, or fingerprint to unlock devices.
