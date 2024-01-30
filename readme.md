@@ -915,3 +915,197 @@ Used to verify passwords.
 -	Virtual smart cards (VSCs): The cards that emulate the functionality of regular smart cards, but require a Trusted Platform Module (TPM) chip to protect the private keys.
 -	Windows Biometric Framework (WBF): Enables users to manage devices settings for biometric devices through Control Panel, provides support for managing device drivers, and manages Group Policy settings that can be used to enable, disable, or limit the use of biometric data for a local computer or domain. 
 -	Windows Hello: A Windows 10 biometric authentication system that uses a user’s face, iris, or fingerprint to unlock devices.
+
+# Understanding Information Security Policies and Their Types
+
+A security policy is a document or group of documents that define the security controls that the company will implement. Policies are not technology-specific and serve three purpose for an organization:
+-	Remove third-party legal liability.
+-	Protect confidential and proprietary data from theft, unauthorized disclosure, and modification.
+-	Avoid misusing the company’s computing resources.
+
+## Understanding Types of Security Policies
+
+There are two kinds of fundamental security policies:
+-	Technical security policies: These contain guidelines for how individuals (both end-users and management) should act and react in the face of security threats.
+
+These policies help in maintaining data confidentiality, availability, and integrity. Some other types of security policies also exist as follows:
+
+-	Promiscuous policy: There are no limitations on how you use system resources under this policy. For example, there are no net access restrictions. From a remote location, a user can view any website, transfer any application, and connect to a laptop or a network. This leaves the company open to threats, such as viruses and trojans. 
+-	Permissive policy: Only known harmful services/attacks/behaviors are blocked when the policy is launched wide open. Not recommended, as it is impossible to stay up to date with all new exploits; to be effective, this policy would need to be revised on a regular basis.
+-	Prudent policy: All services should be blocked as the first step in a smart policy. The administrator authorizes only safe and necessary services. This policy grants the greatest level of protection while allowing only a few minor but necessary risks. 
+-	Paranoid policy: Everything is forbidden under a paranoid policy. All user of business computer, whether its for system or network purposes, is strictly prohibited. There’s either no net association or severely restricted net usage. 
+
+Some examples of security policies are:
+-	Access control policy: Specifies the resources that are to be secured as well as the rules that govern access to them.
+-	Password policy: Explains how to protect company resources with strong passwords.
+-	Remote-access policy: Specifies who is eligible for remote access, as well as the access medium and security restrictions for remote access.
+-	Firewall-management policy: Governs the organization’s firewall access, management, and monitoring.
+-	Network-connection policy: Specifies who has permission to add new network resources, approves the addition of new devices, documents network modifications, and so on.
+-	User-account policy: Specifies how user accounts are created, as well as their power, privileges, and responsibilities.
+-	Information-protection policy: Specifies the amount of sensitivity of data, who has access to it, how it is stored and communicated, and how it should be destroyed from storage media.
+-	Acceptable-use policy: Establishes the limits on how much system resources can be used.
+-	Special-access policy: Describes the terms and conditions under which special access to system resources is granted.
+-	Email security policy: Purpose is to regulate the proper use of business email.
+
+## Creating and Implementing Security Policies
+
+A security policy is a plan that ensures that security concepts are applied consistently throughout your organization. It becomes a reference book for security issues after it is implemented. The following systems should have rules and regulations established by a security policy:
+-	Encryption mechanisms
+-	Access control devices
+-	Authentication systems
+-	Firewalls
+-	Anti-virus systems
+-	Websites
+-	Gateways
+-	Routers and switches 
+
+## Steps to Create and Implement Security Policies
+The following are some steps that should be performed by an organization in order to create and implement security policies:
+1)	Perform a risk assessment to detect threats to the assets of the organization.
+2)	Discover valuable information from standard guidelines and other organizations.
+3)	Include top management and all other employees in the policy-making process.
+4)	Create and enforce fair penalties.
+5)	Make the final version available to the entire organization’s workforce.
+6)	Ensure that all of your employees have read, signed, and comprehended the policy.
+7)	Use tools to enacts policies.
+8)	Educate the organization’s workforce regarding policies.
+9)	Review and update on a regular basis.
+
+## Understanding Key Elements and Characteristics of a Security Policy 
+The following are some key elements and characteristics of a security policy:
+-	Overview: Background information on the policy’s topic of concern.
+-	Purpose: The reason for policy formation.
+-	Scope: The areas that the policy covers.
+-	Target audience: The policy is applicable for whom.
+-	Policy: A through description of the policy.
+-	Definitions: A brief explanation of the technical language used throughout the policy.
+-	Version: The number used to track the document’s revision. 
+
+# Knowledge Check
+
+Acceptable-use: Establishes the limits on how much system resources can be used.
+Information-protection: Specifies the amount of sensitivity of data and how it should be destroyed from storage media. 
+Special-access: Describes the terms and conditions under which a certain connection with system resources is granted.
+Access-control: Specifies the resources that are to be secured as well as the rules that govern the right to use them.
+
+Steps to create and implement security policies:
+1)	Perform a risk assessment to detect threats to the assets of the organization.
+2)	Discover valuable information from standard guidelines and other organizations.
+3)	Include top management and all other employees in the policy-making process.
+4)	Create and enforce fair penalties.
+5)	Make the final version available to the entire organization’s workforce.
+6)	Review and update on a regular basis
+
+# Using Password Policies to Enhance Security
+A basic component of an information security program is ensuring that employees select and use strong passwords. Microsoft provides several controls that can be used to ensure the security associated with passwords is maintained:
+-	Password complexity
+-	Account lockout
+-	Password length
+-	Password history
+-	Time between password changes
+-	Group Policies that enforce password security
+-	Education on common attack methods
+
+## Using Password Complexity to Make a Stronger Password:
+A complex password will use characters from at lest three of the following:
+-	English uppercase characters (A through Z)
+-	English lowercase characters (a through z)
+-	Numeric characters (0 through 9)
+-	Non-alphanumeric characters (such as !, @, #, $, %, ^, &)
+
+Some methods for selecting strong passwords include:
+-	Bump characters in a word certain number of letters up or down the alphabet. A shift three letters translation of “AArdvark!!” becomes “DDvgzdvn!!”
+-	Create acronyms from words in a song, a poem, or another sequence of words. The phrase “Ask no what you can do for your country?” yields the password “Anwycdfyc?” 
+-	Combine a number of personal facts like birthdates and favorite colors, foods, and so on with special characters to create passwords like: “##Yell0w419” or “$^327p!zZ@”
+
+## Using Account Lockout to Prevent Hacking
+Account lockout refers to the number of incorrect logon attempts permitted before the system will lock the accounts. Each bad logon attempt increments the bad logon counter, and when the counter exceeds the accounts lockout threshold, no further logon attempts will be permitted. 
+
+Microsoft provides three separate settings with respect to account lockout:
+-	Account lockout duration: This setting determines the length of time a lockout will remain in place before another logon attempt can be made. This can be set from 0 to 99,999 minutes. If set to 0, an administrator will need to manually unlock the account; no automatic unlocking will occur. 
+-	Account lockout threshold: This setting determines the number of failed logons permitted before the account lockout occurs. This can be set from 0 (no account lockouts) to 999 attempts before lockout.
+-	Reset account lockout counter after: This setting determines the period of time, in minutes, that must elapse before the account lockout counter is reset to 0 bad logon attempts. If an account lockout threshold is set, the reset account lockout threshold must be less than or equal to the account lockout duration.
+
+## Examining Password Length
+Literally make your password at least 14 characters /thread.
+But the generally accepted minimum is 8 (lol).
+
+## Setting Time Between Password Changes
+The final password setting to be aware of is the time between password changes. Two settings are available:
+-	Minimum Password Age: The minimum password age setting controls how many days a user must wait before they can reset their password. This can be set to a value from 1 to 998 days. If set to 0, passwords can be changed immediately. Using a setting that is too low could allow users to defeat the password history settings. For example, if this is set to 0, and the password history is set to 10, al a user would need to do is reset their password 10 times, one right after another, and then they could go back to their original password. This setting must be set to a lower value than the maximum password age, unless the maximum password age is set to 0, which means passwords never expire. A good setting is typically 10 days or more, although this can vary widely depending on administrator preferences.
+-	Maximum Password Age: The maximum password age setting controls the maximum period of time permitted before a user is forced to reset their password. This can be set from 1 to 999 days, or to 0 if passwords are set to never expire. A general rule for this setting is 90 days for user accounts, although for administrative accounts, its generally a good idea to reset the passwords more frequently. In high security areas, 30 days is not an uncommon setting. 
+
+## Using Password Group Policies to Enforce Password Security
+A Group Policy Object (GPO) is  set of rules which allow an administrator granular control over the configuration of objects in Active Directory (AD), including user accounts, operating systems, applications, and other AD objects. GPOs are used for centralized management and configuration for the Active Directory environment. 
+
+## Configuring and Applying Password Settings Objects
+If it is necessary to use different password policies for different sets of users, use fine-grained password policies, which are applied to user objects or global security groups.
+
+Fine-grained password policies allow you to specify multiple password policies within a single domain so that different restrictions for password and account lockout policies can be applied to different sets of users in a domain. To enable fine-grained password policies, first create a Password Settings Object (PSO). Then, configure the same settings that are configured for the password and account lockout policies.
+
+## Establishing Password Procedures
+Passwords are the most common form of authentication, and IT help desks spend a lot of time managing calls from users who cannot log on because they forgot their passwords or their accounts have been compromised.
+
+Every organization should develop a security policy, which is a written document that describes how a system, organization, or other entity is secured. The security policy should include an acceptable use policy, which describes the constraints and practices that users must agree to in order to access the corporate network, corporate resources, and the internet. It is also important to specify a password policy, which dictates the length and complexity requirements for passwords and how often a password should be changed. It can also specify whether multifactor authentication should be used and whether a lockout policy is used when a user has attempted to log on several times using the incorrect password.
+
+As a general rule, forgotten or new passwords should not be emailed to the user, because they can be intercepted by anyone who has control of their email account. If email absolutely must be used, send a password reset link that contains a token that will expire after a short period of time and can only be used once. 
+
+If a caller calls in or sends an email to request a new password, use a procedure that requires the caller to prove their identity as an authorized user. User’s should not use secret questions (such as their mother’s maiden name or pet’s name), because many of these answers can be guessed through social engineering or by searching the internet for user profiles.
+
+One way to authorize users is to use voicemail. When a user needs to use a PIN to retrieve phone messages, inform the user that you will call them back and that they are not to answer the phone (so that you can leave a voicemail). Because the user should be the only one who knows the PIN to retrieve their voicemail, their use of the PIN to retrieve their voicemail will be used to prove the user’s identity. Alternatively, provide the password to their manager, who is local to the user account.  
+
+## Understanding Common Attack Methods
+
+**Dictionary Attack/brute Force Attack**
+A dictionary attack (also known as a brute force attack) uses a dictionary containing an extensive list of potential passwords that the attacker then tries in conjunction with a user ID to attempt to guess the correct password.
+
+These types of attacks tend to be more successful when the password length is 7 characters or less. Each additional character adds a significant number of possible passwords.
+
+The account lockout settings discussing earlier in the lesson are a critical defense against this type of attack, because an account lockout will either slow or stop a brute force attack in its tracks after a certain number of incorrect logons.
+
+**Physical Attack**
+Any time a computer can physically accessed by an attacker, the computer is at risk. Physical attacks on a computer can completely bypass almost all security mechanisms, by capturing the passwords and other critical data directly from the keyboard when a software or hardware keylogger is used. In fact, if an encryption key passes through a keylogger, even the encrypted data can be jeopardized.
+
+Other physical attacks include the use of hidden cameras to tape keystrokes, or even the removal and duplication (or direct theft) of a hard drive. While not specifically a password attack, by removing a hard drive, attackers can frequently bypass password controls by mounting the drive remotely, and accessing data directly from the drive, without an intervening operating system.
+
+**Leaked or Shared Passwords**
+While not strictly an attack, another challenge that is commonly encountered when dealing with users in an office environment is the leaked or shared password. Users tend to trust their co-workers. As a result, a user could be convinced to share their password with a co-worker who felt they needed it. Users will frequently justify the sharing of account information as critical to “getting the job done” or stating that it’s “more convenient.”
+
+User awareness is the best way to combat this type of attack. Providing users with a greater understanding of the risks and impact of these types of behaviors can go a long way towards keeping passwords under the control of only authorized users.  
+
+**Cracked Passwords**
+
+A cracked password frequently relies on more than just a password attack. In a cracked password attack, the attacker gets access to encrypted password file from a workstation or server. Once they have access, the attacker will start running password cracking tools against the file, with an eye towards breaking as many passwords as possible, when leveraging them to further compromise the company’s network and systems. 
+
+Passwords that are stored in an encrypted state are harder to break than passwords that are stored in clear text or in a hashed state. However, with todays computing power, even encrypted passwords stored are being compromised by cracking attacks.
+
+**Network/wireless Sniffer**
+If an attacker can gain access to your internal network, your wireless network, or even an internet access point used by your employees, they have the ability to use a specialized tool known as a sniffer to try to intercept unencrypted passwords.
+
+Sniffers are specifically designed software (and in some cases hardware) applications which capture network packets as they traverse the network and display them for the attacker.
+
+Another area of concern with sniffers is wireless keyboards. At its core, a wireless keynoard is a broadcast technology that sends keystrokes from the keyboard to the receiver connected to the computer. If a receiver is tuned to the same frequency close enough to the computer, every keystroke entered into the wireless keyboard can be captured, without needing a keylogger installed. 
+
+**Guessed Passwords**
+While not as prevalent an issue as it was in times past, there is still the possibility that someone could sit down at your computer and guess your computer. So don’t be dumb and use complex non-user specific passwords or a secure password generator. 
+
+# Protecting Domain User Account Passwords
+
+Device Guard helps harden a computer system against malware by running only trust applications, thereby preventing malicious code from running. 
+
+Credential Guard isolates and hardens key system and user security information. Both technologies are available only though Windows 10 Enterprise.
+
+Device Guard and Credential Guard use Windows 10 virtual secure mode (VSM) which, in turn, uses the processor’s virtualization to protect the PC, including data and credential tokens on the system’s disks. By using hardware virtualization, Windows 10 is organized into multiple containers. Windows runs one container; the Active Directory security tokens that allow access to your organization’s resources run in another container. Each container is isolated from the other. Therefore, if Windows is compromised by malware, the tokens are protected because they are isolated in their own encrypted container.
+
+Following are requirements for using VSM:
+-	UEFI running in Native Mode (not Compatibility/CSM/Legacy mode)
+-	64-bit version of Windows 10 Enterprise
+-	64-bit processor that supports Second Layer Address Translation (SLAT) and Virtualization Extensions (such as Intel VT or AMD V)
+
+A Trusted Platform Module (TPM) is recommended. 
+
+# Knowledge Check
+Device Guard helps harden a computer system against malware by running only trusted applications, thereby preventing malicious code from running. Credential Guard isolates and hardens key system and user security information.
+
+
+
