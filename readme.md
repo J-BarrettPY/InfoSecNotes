@@ -1107,5 +1107,326 @@ A Trusted Platform Module (TPM) is recommended.
 # Knowledge Check
 Device Guard helps harden a computer system against malware by running only trusted applications, thereby preventing malicious code from running. Credential Guard isolates and hardens key system and user security information.
 
+# Flashcards
+-	Acceptable Use Policy: Describes the constraints and practices that users must agree to, in order to access the corporate network, corporate resources, and the internet.
+-	Account Lockout: Refers to the number of incorrect logon attempts permitted before a system locks an account. Each bad logon attempt is tracked by the bad logon counter, and when the counter exceeds the account lockout threshold, no further logon attempts are permitted. 
+-	Cracked Password: A password that gets access to an encrypted password file fro a workstation or server. Once he or she has access, the attacker starts running password cracking tools against the file, with an eye toward breaking as many passwords as possible and leveraging them to further compromise the company’s network and systems.
+-	Credential Guard: Isolates and hardens the key system and user security information.
+-	Device Guard: Helps harden a computer system against malware by running only trusted applications, thereby preventing malicious code from running.
+-	Dictionary Attack: An attack that uses a dictionary containing an extensive list of potential passwords that the attacker then tries in conjunction with a user ID in an attempt to guess the appropriate password.
+-	Fine-grained Password Policies: Allow you to specify multiple password policies within a single domain so that different restrictions for password an account lockout policies can be applied to different sets of users in a domain.
+-	Group Policy Object (GPO): A set of rules that allow an administrator granular control over the configuration of objects in Active Directory (AD), including user accounts, operating systems, applications, and other AD objects.
+-	Password: A secret series of characters that enables a user to access a particular file, computer, or program. 
+-	Password Policy: Dictates the length and complexity requirements for passwords and how often a password should be changed.
+-	Password Settings Object: To enable fine-grained password policies, first create a Password Settings Object (PSO). Then, configure the same settings that are configured for the password and account lockout policies. In the Windows Server 2016 environment, PSOs can be created and applied by using the Active Directory Administrative Center (ADAC) or Windows PowerShell.
+-	Security Policy: A written document that describes how a system, organization, or other entity is secured.
+-	Sniffers: A specifically designed software (and in some cases hardware) applications that capture network packets as they traverse a network, displaying them for the attacker.
+-	Strong Password: A password that is hard to guess because it is long and has a mix of different types of characters.
+
+# Using Dedicated Firewalls to Protect a Network
+
+A firewall is a system that is designed to protect a computer or a computer network from network-based attacks. A firewall does this by filtering the data packets traversing the network. A typical perimeter firewall is implemented with two (or more) network connections.
+-	A connection to the network being protected.
+-	A connection to an external network.
+
+## Understanding the OSI Model
+Physical Layer (Layer 1)
+-	Media: Cabling types, voltage, signal frequency, speed, bandwidth, and so on.
+-	Hardware: Type of connector, type of network interface card used, and so on.
+-	Topology: The topology to be used in the network, such as ring, mesh, star, and bus.
+
+Data-link Layer (Layer 2)
+-	MAC layer: The MAC address is defined at this layer.
+-	LLC layer: The LLC layer is the layer responsible for the error and flow control mechanisms of the data-link layer. The LLC layer is specified in the IEEE 802.2 standard.
+
+Network Layer (Layer 3)
+-	Primarily responsible for routing.
+-	Defines mechanisms that allow data to be passed from one network to another.
+-	Does NOT specify how data is passed, but instead defines the mechanism that permit it.
+-	Routers
+
+Transport Layer (Layer 4)
+-	Segmentation: Downloading an MP3 file from a favorite music site involves dealing with a large block of data. In order to get from the music site to a PC, this file needs to be broken down into smaller, more manageable blocks, so the network can handle it. This process performed by the transport layer is called segmentation.
+-	Service Addressing: Network protocols (TCP/IP, for example) provide several network services. These services are identified by ports. The transport layer ensures that when data traverses the network, it is passed to the correct service.
+-	Error Checking: Transport layer protocols also perform error checking on the data and ensure that data is sent and received correctly.
+
+The protocols operating at the transport layer come in two types:
+-	Connection Oriented: A connection-oriented protocol, such as the Transmission Control Protocol (TCP), requires an end-to-end connection between hosts before data can be transmitted. 
+-	Connectionless: A connectionless protocol, such as the User Datagram Protocol (UDP), allows for the transmission of data without requiring that a connection be established first. 
+
+The transport layer also handles the flow control of data. There are two common methods of flow control-buffering and windowing:
+-	Buffering: Buffering flow control temporarily stores data in a buffer and waits for the destination device to become available.
+-	Windowing: In a windowing environment, data segments are grouped together, and when sent, require only one acknowledgement.
+
+Session Layer (Layer 5)
+-	Responsible for data synchronization between applications on the two devices. 
+-	Establishes, maintains, and breaks sessions between devices.
+
+Presentation Layer (Layer 6)
+-	Converts application layer data into a format the permits the data to be transmitted across the network. 
+-	Responsible for encryption and decryption. 
+
+Some common data formats that are converted by the presentation layer include the following:
+-	Graphics files
+-	Text and data files
+-	Music and video files
+
+Application Layer (Layer 7)
+-	Takes data from the user and passes the data to the lower layers of the OSI model for transport.
+
+While the OSI model gives us a framework to categorize technology, it is not fully implemented on today’s networks. Instead, today’s networks follow a simplified model usually consisting of the following four layers:
+-	Link Layer: The link layer is the lowest layer of the TCP/IP model and is designed to be hardware independent. It is responsible for linking to the hardware network technology and transmits data. 
+-	Internet Layer: The Internet layer is responsible for connecting multiple networks together and for routing of packets between networks. 
+-	Transport Layer: The transport layer is responsible for end-to-end message transfer capabilities independent of the underlying network. It also handles error control, segmentation, flow control, congestion control, and application addressing (port numbers).
+-	Application Layer: The application layer refers to the higher-level network protocols and services such as SMTP or FTP.
+
+## Types of Hardware Firewalls and Their Characteristics
+-	Firewalls filter traffic based on a set of configured rules.
+-	The header information contained in data packets provides the firewall the information it needs to apply these rules. 
+-	Virtually all firewalls deny-all, permit-specific.
+
+### Understanding Packet Filtering 
+The first type of firewall is known as the packet-filtering firewall. 
+-	Inspects the data packets as they attempt to traverse the firewall, and based on the rules that have been defined, allows or denies. 
+
+When configuring a packet-filtering firewall rule, one (or more) of the following TCP/IP attributes should generally be used: 
+-	Source IP addresses.
+-	Destination IP addresses.
+-	IP protocol (telnet, ftp, http, https, and so on).
+-	Destination TCP and UDP ports.
+-	The inbound firewall network interface. 
+-	The outbound firewall network interface.
+
+Common protocols and ports that will be encountered in a production network:
+-	FTP (file transfer) 20/tcp and 21/tcp
+-	Telnet (Terminal logon) 23/tcp
+-	DNS 53/udp and 53/tcp
+-	HTTP (web) 80/tcp
+-	HTTPS (web) 443/tcp
+-	SMTP (email) 25/tcp
+-	POP3 (email) 110/tcp
+-	IMAP3 (email) 220/tcp
+-	IMAP4 (email) 143/tcp
+-	LDAP (directory services) 389/tcp
+-	SQL Server 1443/tcp
+-	RDP (Terminal Services) 3389/tcp
+
+### Understanding Circuit-Level Firewalls
+Circuit-level firewalls are typically considered a second-generation firewall technology. They work similarly to packet-filtering firewalls, but they operate at the transport and session layer of the OSI model. 
+
+Instead of analyzing each individual packet, a circuit-level firewall monitors TCP/IP sessions by monitoring the TCP handshaking between packets to validate the session. Traffic is filtered based on specified session rules and may be restricted to authorized computers only. 
+
+One unique feature of circuit-level firewalls is that sessions that cross this type of firewall appear to originate from that firewall. This allows the internal network to be hidden from the public network. 
+
+Circuit-level firewalls are almost always used in conjunction with other types of firewalls, because they are only able to permit sessions from authorized computers.
+
+### Understanding Application-level Firewalls
+Application-level firwalls (also known as proxy servers) work by performing a deep inspection of application data as it traverses the firewall. Rules are set based on analyzing client requests and application responses, then enforcing correct application behavior.
+
+Application-level firewalls can block malicious activity, log user activity, provide content filtering, and even protect against spam and viruses. 
+
+-	Resource-intensive and can require significant processing power to reduce the chances the firewall impacting network performance.
+
+### Understanding Stateful Multi-level Firewalls
+Stateful multi-level firewalls are designed to provide the best features of both packet-filtering and application-level firewalls. This type of firewall provides network-level packet filtering and is also capable of recognizing and processing application-level data. 
+
+## Understanding When to Use a Hardware Firewall Instead of a Software Firewall
+There are two basic types of software firewall:
+-	Host firewall: One type of software firewall is a firewall application installed on a host, used to protect the host from network-based attacks. Host firewalls are also known as personal firewalls.
+-	Network firewall: The other type of software firewall is a firewall application installed on a server used to protect network segments from other network segments. Offer similar functionality to a hardware firewall. 
+
+To protect a single host, the best solution would be to install a software firewall on the host, with a specific set of rules based on what needs to be protected. 
+
+Challenges associated with software firewalls:
+-	Host hardware: Software firewalls run on the already busy server’s general purpose hardware. This can lead to bottlenecks (such as processor, memory, or network), especially if the hardware hasn’t been sized appropriately to address the traffic requirements associated with running a firewall application.
+-	Host operating system: While both hardware and software firewalls run operating systems, a hardware firewall runs a hardened operating system, a hardware firewall runs a hardened operating system, providing a smaller attack surface than an unhardened operating system. 
+-	Other applications: Software firewalls must compete for resources with any other processes running on the host. A hardware firewall has dedicated hardware resources that are not shared with any other services. Additional hardware may be needed to match the performance of the hardware firewall.
+-	Availability/stability: One of the potential issues associated with using a software firewall is that its reliability is tied to the reliability of the underlying operating system and associated hardware. 
+
+**In a medium to large network environment, where performance, availability, and reliability are critical, a hardware firewall is the best solution.**
+
+## Understanding Stateful Inspection and Stateless Inspection
+In stateless inspection, the data traversing the firewall are examined for information like:
+-	The IP address of the sending device.
+-	The IP address of the receiving device.
+-	The type of packet (TCP, UDP, and so on).
+-	The port number.
+
+Stateful inspection takes packet filtering to the next level. In addition to examining the header information of a packet traversing the firewall, a stateful inspection firewall also considers other factors when determining if traffic should be permitted across the firewall. 
+-	Also determines whether a packet is part of an existing session. 
+-	Keeps track of all current sessions in a state table stored in memory. 
+-	Each packet encountered will be analyzed to determine whether it is part of an existing session (state) or not.
+-	Stateful inspection firewalls make excellent perimeter firewalls for protecting an internal network from the internet, for protecting DMZ-based hosts from the internet, and for protecting extranets from connections to customers, vendors, or business partners.
+
+# Knowledge Check
+-	Link – The lowest layer of the TCP/IP model and is designed to be hardware independent.
+-	Internet – Responsible for connecting multiple networks together and for routing of packets between networks.
+-	Transport – Responsible for end-to-end message flow capabilities independent of the underlying network.
+-	Application – Refers to the higher level network protocols and services such as SMTP or FTP.
+
+-	Circuit-level – A second generation firewall technology which operates at the transport and session layers of the OSI model.
+
+-	Application-level – Blocks malicious activity, logs user activity, provides content filtering, and even protects against spam and viruses. 
+
+-	Packet-filtering – Inspects the data as they attempt to traverse the firewall, and based on the rules that have been defined on the firewall, the firewall allows or denies them.
+
+
+# Using Isolation to Protect the Network
+## Understanding VLANs
+Virtual LANs (VLANs) were developed as an alternate solution to deploying multiple routers. VLANs are logical network segments used to create separate broadcast domains, but still allow the devices on the VLANs to communicate at Layer 2, without requiring a router. 
+
+VLANs are created by switches, and traffic between VLANs is switched, not routed, which creates a much faster network connection. Even though the hosts are logically separated, the traffic between the hosts is switched directly as if the hosts were on the same LAN segment. 
+
+VLANs provide several benefits over a routed network, including the following:
+-	Higher performance on medium or large LANs due to reduced broadcast traffic.
+-	Organized devices on the network for easier management.
+-	Additional security because devices can be put on their own VLAN. 
+
+There a several different ways to assign hosts to VLANs. These methods include the following:
+-	VLAN membership by port: The ports on the switch are defined as belonging to a specific VLAN, so any device plugged into a port would be assigned to the corresponding VLAN. For example, a 32-port switch might have ports 1-4 assigned to VLAN1, ports 5-16 assigned to VLAN2, and ports 17-32 assigned to VLAN3. 
+-	VLAN membership by MAC address: Under this model, membership in a VLAN is based on the MAC address of the host. When the VLAN is set up on the switch, the hosts are assigned based on their MAC address. When a workstation moves to another location, and connects to a different switch port, the switch automatically assigns the host to the appropriate VLAN based on the MAC address of the workstation. Because the MAC address is generally hard-coded into the host’s NIC, this model is generally more usable in an environment where hosts move. Does require more work to setup, however.
+-	Membership by IP subnet address: In this type of VLAN association, membership is based on the Layer 3 header. The switch reader the Layer 3 IP address and associates the address range with the appropriate VLAN. This model is also conductive to an environment where there are frequent user moves. 
+-	Membership by protocol: VLANs can also be organized based on protocol. 
+
+## Understanding Routing
+Routing is the process of forwarding a packet based on the packet’s destination address. At each step in the route a packet takes across the network, a decision has to be made about where the packet is to be forwarded. 
+
+To make these decisions, the IP layer consults a routing table stored in the memory of the routing device. Routing table entries are created by default when TCP/IP initializes, then additional entries are added either manually by a system administrator or automatically through communication with routers.
+
+Routers come in two basic types: software and hardware. A software router is a computer running an operating system and multiple services, including a routing service. Windows Server 2016 supports routing. Some benefits of a software router include the following:
+-	Tight integration with the OS: The routing service is frequently integrated with the operating system and other services. 
+-	Consistent/easier user interface: No retraining is required on a new interface/operating system – the routing functions are configured through the standard user interface.
+-	Low cost: When adding routing to an existing server, it is not necessary to pay for dedicated hardware. This reduces the overall cost, although if you were to dedicate a software router for just routing, any cost saving would be negligible. 
+-	Flexibility: Software routers allow multiple services to be configured and run on a single platform.  
+
+While there are benefits to using a software router, there are also some significant drawbacks when compared to a hardware router:
+-	Performance: Due to the additional overhead associated with the operating system and any additional running services, software routers are typically slower than hardware router.
+-	Less reliable: Any software router has the potential for issues with the operating system and other running services, as well as with the greater number of hardware components compared to a hardware router. 
+-	Limited scalability: Scaling a software router to multiple high-speed interfaces will be subject to the limitations of the computer hardware. 
+-	Limited protocol support: Software routers typically do not support as many routing protocols as a hardware router. Windows Server 2016 is limited to the IP routing protocols RIP, OSPF, and BGP, and does not presently support any of the more advanced IP-based routing protocols, like BGP4.
+
+A hardware route is dedicated hardware device whose main function has been to route packets. Many hardware routers are multi-function devices, having additional functionality like VPN, DHCP, firewall, caching, or in some cases even intrusion detection services.
+Benefits include:
+-	Higher performance – Hardware routers run on custom-built, single-purpose hardware platforms with highly optimized hardware and operating systems.
+-	Highly reliable – Hardware routers are typically more reliable than their software counterparts, due in large part too the limited software capabilities, and dedicated hardware.
+-	Wide routing protocol support – Hardware routers can typically be configured to support a larger range of routing protocols, as long as the appropriate functions are purchased.
+
+Hardware routers drawbacks:
+-	Higher cost
+-	Less user friendly
+-	More complex
+
+## Understanding Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS)
+
+There are two main types of IDS/IPS:
+-	Network-based: monitors network traffic using sensors that are located at key locations within a network, such a DMZ. 
+-	Host-based: Generally has software agent that acts as the sensor. Monitors all activity of the host, including file system, logs, and kernel.
+
+Common deployment methodologies used when placing IDS/IPS:
+-	Unfiltered: examines the raw Internet data stream before it crosses the firewall. Provides the highest amount of visibility to attacks, but also means that there is a significantly higher volume of data to be monitored, with a higher possibility of false positives. 
+-	Screened: Monitors traffic that gets through the screening firewall. Dramatically reduces the amount of traffic that needs to be monitored, reducing the changes of false positives and lost packets. 
+
+## Understanding Honeypots
+
+Honeypot: trap for hackers (lol).
+
+Honey net: collection of honey pots.
+
+Different types of honeypots:
+-	Production: Used to distract attackers from potentially vulnerable production systems and are relatively easy to use. 
+-	Research (YE BOI): Used to capture extensive information which is used to develop attack signatures, identify new attack techniques and vulnerabilities, and develop better understanding of the attacker’s mindset. 
+
+## Understanding DMS
+
+DMZ is a firewall configuration used to secure hosts on a network segment. In most DMZs, the hosts on the DMZ are connected behind a firewall which is connected to a public network like the Internet. Another common config is to have the firewall connected to an extranet, with connections to customers, vendors, or business partners. DMZs are designed to provide access to systems without jeopardizing the internal network.
+
+Two typical DMZs:
+-	Sandwich DMZ: There is an outer firewall and inner firewall. The outer firewall secures the DMZ network segment from the external (insecure) network. Servers that are meant to be accessed from the external network (like the Internet) have the appropriate rules configured to permit secure access. The inner firewall is used to add an additional layer of security between the servers on the DMZ and the internal (secure) network.
+-	Single Firewall DMZ: In a Single Firewall DMZ, the DMZ is an additional network connection from the firewall. This provides an external network connection, an internal network connection, and a DMZ network connection, all connected to the same firewall. 
+
+Servers and services which might be placed on a DMZ:
+-	Web servers: Web servers are the most common servers found in DMZ networks. Accessed using HTTP over port 80 or HTTPS over port 443 for secure access. 
+-	Email relay servers: Allow for sending and receiving Internet email. 
+-	Proxy servers: Used to proxy or act as an intermediary for user requests from the internal network to the Internet, and are typically used to retrieve website information. 
+-	Reverse proxy servers: Used to provide secure access to internal application from an insecure network. Largely been replaced by VPNs, reverse proxy servers can be used to provide employees access to web-based email servers on the internal network, provide access to internal web applications and in some cases, even provide secure terminal services connections to the internal network.
+
+## Understanding NAT
+Network Address Translation (NAT) is a technique used to modify the network address information of a host while traffic is traversing a route or firewall. Used to hide the network information of a private network, while allow traffic to be transferred across a public network like the Internet. 
+
+-	Originally created as a workaround for IP addressing issues.
+-	Allows the use of one set of IP addresses on the internal LAN, and a second set of IP addresses for the Internet connection.
+
+Two main types of NAT:
+-	Static NAT: Maps an unregistered IP address on the private network to a registered IP address on the public network, using a one-to-one basis. 
+-	Dynamic NAT: Maps unregistered IP address on the private network to a registered IP address that is selected by the routing device providing the NAT service from a pool of registered IP addresses. More common when many hosts on the internal network need to access the Internet and don’t have a requirement for a static address. 
+
+## Understanding VPN
+Technology used for encrypted tunnels to create a secure connection across public networks like the Internet. VPNs utilize encryption and authentication to provide confidentiality, integrity, and privacy for data.
+
+The first standards-based VPNs were based on the IPsec protocol. 
+
+
+## Understanding Other VPN Protocols
+IPsec can be considered predominant protocol associated with VPNs, but others include:
+-	Secure Sockets Layer (SSL)/transport Layer Security (TLS): Main alternative to IPsec.
+-	Widely used to secure websites, it has also been formalized in the IETF standard known as Transport Layer Security (TLS). 
+-	SSL/TLS provides a method for secure client/server communications across a network and prevents eavesdropping and tampering with data in transit. 
+-	Provides endpoint authentication and communications confidentiality using encryption. 
+-	HTTPS uses SSL protocol. 
+-	128-bit encryption. 
+-	SSL VPNs are predominantly used for remote access VPN connections.
+
+Benefits of SSL/TLS VPNs over IPsec:
+-	Less expensive
+-	Platform independent 
+-	Client flexibility
+-	NAT support
+-	Granular access control
+-	Fewer firewall rules required
+
+## Secure Shell (SSH)
+Protocol used for secure remote logon and other secure network services over the network.
+
+Some applications supported with SSH:
+-	Secure logon
+-	Secure remote command execution
+-	Secure file transfer
+-	Secure backup, copy, and mirroring of files
+-	Creation of VPN connections (when used in conjunction with the OpenSSH server and client)
+SSH protocol consists of three major components:
+-	Transport Layer Protocol
+-	User authentication protocol
+-	Connection protocol
+
+# Knowledge Check
+Honeypot – distracts hackers from real targets, detects new vulnerabilities, and learns about the identity of attackers.
+
+DMZ – Firewall configuration to secure hosts on a network segment.
+
+NAT – technique used to modify the network address information of a host while traffic is traversing a router.
+
+VPN – Tehcnology that uses encrypted tunnels to create secure connections across public networks like the Internet.
+
+-	NIDS – monitors traffic using sensors located at key locations within the network, often in the DMZ.
+-	NIDS – gains access to traffic by connecting to a bug, a switch configured for port mirroring.
+-	HIDS – has a software agent that acts as the sensor.
+-	HIDS – Monitors all activities like monitoring the file system, the logs, and the kernel to identify and alert upon suspicious behavior. 
+
+# Protecting Data with Protocol Security
+
+## Understanding Tunneling
+Tunneling is defined as the encapsulation of one network protocol within another. Tunneling can be used to route an unsupported protocol across a network, or to a securely route traffic across an insecure network. VPNs use a form of tunneling when data is encapsulated in the IPsec protocol. 
+
+Example of tunneling that is used to move unsupported traffic across a network is the Generic Routing Encapsulation (GRE) protocol. GRE is an IP-based protocol frequently used to carry packets from unrouteable IP addresses across an IP network. 
+
+
+PPTOP (Point-to-Point Tunneling Protocol) is a proprietary VPN protocol originally developed by the PPTP Forum, a group of vendors that included Ascend Communications, Microsoft Corporation, (WHO CARES). PPTOP was popular, but not so much after IPsec was released.
+
+## Understanding DNS Security Extensions (DNSSEC)
+
+
+
+
+
 
 
