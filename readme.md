@@ -1423,6 +1423,94 @@ Example of tunneling that is used to move unsupported traffic across a network i
 PPTOP (Point-to-Point Tunneling Protocol) is a proprietary VPN protocol originally developed by the PPTP Forum, a group of vendors that included Ascend Communications, Microsoft Corporation, (WHO CARES). PPTOP was popular, but not so much after IPsec was released.
 
 ## Understanding DNS Security Extensions (DNSSEC)
+DNS Security Extensions (DNSSEC) adds security provisions to DNS so that computers can verify the they have been directed to proper servers. DNSSEC provides authentication and integrity checking on DNS lookups, ensuring that outgoing internet traffic is always sent to the correct server. 
+
+DNSSEC provides authentication and integrity checking through the use of public key encryption. 
+
+## Understanding Protocol Spoofing
+Spoofing is hoaxing stuffs. Basically, dressing up a dog as a cat.
+
+Protocol spoofing is the misuse of a network protocol to perpetrate a hoax on a host or a network device. Common forms of protocol spoofing:
+-	ARP spoofing: ARP (Address Resolution Protocol) spoofing (or ARP poisoning) is an attack on the protocol used to determine a device’s hardware address (MAC address) on the network when the IP address is known. The attack occurs when an attacker modifies the network’s ARP caches and takes over the IP address of the victim host. This permits the attacker to receive any data intended for the original host.
+-	DNS spoofing: Occurs when an attacker is able to intercept a DNS request and respond to the request before the DNS server is able. As a result, the victim host is directed to the wrong website, where additional malicious activities can take place. This attack is frequently used in conjunction with network sniffing.
+-	IP address spoofing: Attacker creates IP packets with forged source IP address to either conceal the identity of the attacking host, or to impersonate the identify of the victim host. 
+
+## Understanding Network Sniffing
+WIRESHARK MY DUDES!
+
+Today, with widespread use of encryption through secure websites and the use of VPNs for remote access, the risks presented by network sniffing are slightly mitigated, as the attacker can no longer read the data contents of a packet. 
+
+Network sniffers can only see traffic that crosses the port to which it is connect. Sniffers placed on the LAN in a branch office cannot capture traffic from the headquarters networks. In a switched environment, leveraging VLANs, the amount of traffic passing any one port can be limited. The ports that offer the most information are the ingress/egress points to the network, where all traffic from the subnet is concentrated.
+
+This means an attacker cannot directly capture traffic from your network, but the doesn’t mean youre safe (you never ARE!). 
+
+## Understanding Common Attack Methods
+Common attack includes:
+-	Denial-of-service/distributed denial-of-service (DOS/DDoS) attacks. 
+-	IP spoofing to bypass network security: By appearing as trust, the attacker is able to bypass network security. 
+-	Man-in-the-middle attacks: breaks communication between the endpoints of a network connection to intercept data being transferred or even inject false information into the data stream.
+-	Back door attack: Access point purposely coded in software by some jerk dude. Super hard to find. Try hard senior security programmers.
+-	DNS poisoning: Attack against cached information on a DNS server.
+-	Replay attack: Attack is able to capture an intact data stream from the network using a network sniffer, modify certain components of the data stream and then replay the traffic back to the network to complete their attack.
+-	Weak encryption keys: Do I really need to describe this. Don’t use WEP.
+-	Social engineering: lol.
+-	Password cracking: lol. Requires access to encrypted password database, and a tool designed to decrypt the database. Rainbow tables prob.
+-	Dictionary attack: lol. Uses dictionary of common passwords.
+-	Brute force attack. Script kiddie stuff. Attempts every key combination known in order to break the password. GPUs gonna be needed to be anywhere near operatable.
+-	Software vulnerability attack: vulnerabilities in code or os. Basically the Windows OS in its entirety. 
+-	Buffer overflow attack: Exploits poorly written code (so mine) by injecting data into variable fields and leveraging the responses to access information in the application. 
+-	Remote code execution attack: The best kind of attack and pretty common in CVEs. When an application is improperly coded, an attacker is able to run arbitrary, system level code through the application and use the results to access data or perform other unintended actions against the application or application server. 
+-	SQL injection attack: Older kind of attack. Uses control characters entered into a database like web application to retrieve information.
+-	Cross-site scripting (XSS) attack: By far the most common and potentially the most dangerous current attack against web users. These attacks bypass security mechanisms and inject malicious scripts into web pages, getting users to execute them, an attack can gain elevated access privs to sensitive page content, sessions cookies, and a variety of other information maintained by the browser. 
+
+# Knowledge Check:
+Social engineering attack – An attack that occurs when an attacker contacts an employee of the company and tries to extract useful information from them.
+
+DNS poisoning – An attack against the cached information on a server.
+
+Back door attack: An attack against an opening left in a functional piece of software that allows access into a system or software application without the owner’s knowledge.
+
+Man-in-the-middle attack: A type of attack where the attacker breaks into the communication between the endpoints of a network connection.
+
+
+IP address spoofing: The attacker creates IP packets with a forged source IP address to either conceal the identity of the attacking host, or to impersonate the identity of a victim host.
+
+ARP spoofing: An attack on the protocol used to determine a device’s hardware address on the network when the IP address is known.
+
+DNS spoofing: Occurs when an attacker is able to intercept a request and respond to the request before the server. Its like DLL hacking kinda but not really.
+
+
+# Understanding Denial-of-Service (DoS) Attacks
+
+When a DoS attack occurs, the usual symptoms include the following:
+-	Unusually slow network performance, including when opening files or accessing website. 
+-	Unavailability of any or all websites.
+-	Dramatic increase in the number of spam emails received.
+
+There are three general types of DDoS attacks:
+-	Volume-based attacks: Saturates the bandwidth of an attack site or system by flooding the site or system with UPP packets, ICMP packets, or other spoofed packets.
+-	Protocol attacks: Consumes resources of server or communication devices, such as firewalls and load balancers. They include SYN floods, fragmented packet attacks, ping of death attacks, and Smurf DDoS.
+-	Application-layer attacks: Uses system or device vulnerabilities to crash the server or communication device. They include low-and-slow attacks and GET/POST floods.
+
+Popular and dangerous types of DDoS attacks:
+-	UDP flood: Uses User Datagram Protocol (UDP), which is a connectionless networking protocol, to flood random ports on a remote host with numerous UDP packets. When the server repeatedly checks for the application listening at that port – to the point at which the system utilities all its resources responding to it – the system becomes inaccessible.
+-	ICMP (ping) flood: Uses ICMP packets to flood systems. This type of attack can consume both outgoing and incoming bandwidth because the victim’s servers often attempt to respond with ICMP Echo Reply packets.
+-	SYN flood: Many TCP protocols use a three-way handshake in which a SYN Request is sued to initiate a TCP connection. The host responds with a SYN-ACK response, which is confirmed with an ACK response from the requester. In a SYN flood, the attacker sends multiple SYN request from a spoofed IP address. Too many SYN requests lead to the system not accepting any new connections.
+-	Ping of death: An attack that sends multiple malformed or malicious pings to a computer. The IP package, including the header, is 65,535 bytes in length, and many computer systems were never designed to properly handle ping packets larger than this, because it violates the Internet Protocol. By sending IP fragments with oversized Fragment Offsets, attackers can cause the IP packets, which were split into smaller sizes for travel, to form packets larger than 65,535 bytes after reassembly at the receiver, overflowing the memory buffers. Thus, important memory areas are overwritten, causing denial-of-service for legitimate packets.
+-	HTTP flood: Uses many HTTP GET or POST requests to attack a web server or application. This attack is most effective when it forces the server of application to allocate the maximum resources possible in response to each single request.
+-	Email bomb: Sends so many emails to a user or domain, the server becomes overwhelmed. 
+-	Zero-day attacks: These attacks are based on using unknown or recently announced vulnerabilities. 
+
+# Knowledge Check
+
+Select the types of DDoS attacks:
+
+Volume-based: Saturates the bandwidth of an attack site or system by flooding the site or system with UPP packets, ICMP packets, or other spoofed packets.
+
+Protocol: Consumes resources of server or communication devices, such as firewalls and load balancers.
+
+Application layer: Uses system or device vulnerabilities to crash the server or communication device.
+
 
 
 
