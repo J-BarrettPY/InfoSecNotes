@@ -1511,6 +1511,207 @@ Protocol: Consumes resources of server or communication devices, such as firewal
 
 Application layer: Uses system or device vulnerabilities to crash the server or communication device.
 
+# Flashcards
+Application-level firewalls: Also known as proxy servers. Work by performing a deep inspection of application data as it traverses the firewall. Rules are set by analyzing client requests and application responses, then enforcing correct application behavior.
+
+ARP Spoofing: ARP (Address Resolution Protocol) spoofing (or ARP poisoning) is an attack on the protocol used to determine a device’s hardware address (MAC address) on the network when the IP address is known.
+
+Back door attack: Against an opening left in a functional piece of software that allows access into a system or software application without the owner’s knowledge.
+
+Buffer overflow attack: Exploits poorly written code by injecting data into variable fields and leveraging the response to access information in the application.
+
+Circuit-level firewalls: Typically considered second-generation firewall technology. They work in a similar fashion to packet-filtering firewalls, but they operate at the transport and session layers of the OSI model.
+
+Cross-Site Scripting (XSS) attack: by the thee most common and potentially the most dangerous attack against web servers. Allows attackers to bypass the security mechanisms provided by the web browser.
+
+Denial-of-service (DDoS) attack: Attacker renders a machine or network resource unavailable. 
+
+DMZ (demilitarized zone): Firewall configuration to secure hosts on a network segmenet.
+
+DNS poisoning: Attack against the cached information on your DNS server. 
+
+DNS Security Extensions (DNSsec): Adds security provisions to DNS so that computers can verify they have been directed to proper servers.
+
+DNS spoofing: Occurs when an attacker is able to intercept a DNS request and respond to the request before the DNS server.
+
+Email bomb: Lots of emails so email server is overwhelmed. 
+
+Firewall: System that is designed to protect a computer or a computer network from network-based attacks.
+
+Honey net: Collection of honeypots used to present an attacker with an even more realistic attack environment. 
+
+Honeypot: trap for hackers.
+
+Host firewall: Software firewall installed on a host and used to protect the host from network-based attacks.
+
+HTTP flood: Uses many HTTP GET or POST requests to attack a web server or application. This attack is most effective when it forces the server or application to allocate the maximum resources possible in response to every single request. 
+
+ICMP (ping) flood: Uses ICMP packets to flood systems.
+
+IEEE 802.1x: WPA/WPA2 uses an external authentication server coupled with the EAP standard to enable strong authentication for connection to the WLAN.
+
+Intrusion Detection Systems (IDS): Designed to detect unauthorized user activities, attacks, and network compromises.
+
+Intrusion Prevention Systems (IPS): Detects authorized user activities, attacks, and network compromises that can also take action to prevent a breach from occurring. 
+
+IP address spoofing: Attacker creates IP packets with a forged source IP address to either conceal the identity of the attacking host or to impersonate the identity of a victim host.
+
+MAC address: They physical address of ur NIC.
+
+Man-in-the-middle attack: Breaks into the communication between endpoints of the network connection.
+
+
+
+
+# Protecting the Client Computer
+## Protecting Your Computer from Malware
+Malware is bad basically. (per vx underground)
+
+### Understanding Types of Malware 
+-	Virus
+-	Worm (best kind)
+-	Trojan horse
+-	Spyware and dishonest adware
+-	Rootkit
+-	Backdoor (also best lol)
+-	Polymorphic virus (this one cool too)
+-	Zero-day attack (nerds)
+-	Ransomware (script kiddies)
+
+Recommendation to protect against ransomware:
+-	Install and use an up-to-date antivirus solution.
+-	Make sure the OS and software are up-to-date.
+-	Avoid clicking links and opening weird attachments.
+-	Ensure SmartScreen Filter is turned on.
+-	Ensure that a pop-up blocker is enabled.
+-	This is obviously the most important but they saved it for last: Backup your stuff chump. Back it all up. On regular basis. Every day. Do it now.
+
+Signs you have malware:
+-	System slow
+-	System less memory
+-	Performs poorly when connected to internet
+-	Computer stops responding
+-	Takes longer to start up
+-	Browser closes unexpectedly or stops responding 
+-	Browser default home or search page change
+-	Advertising windows unexpectedly pop up
+-	Additional toolbars are unexpectedly added to browser
+-	Programs start unexpectedly
+-	Programs cannot start
+-	Components of Windows or other programs no longer work
+-	Program or files suddenly missing (lol)
+-	Messages or displays on a monitor are unusual
+-	Sounds or music that are unusual play at random times (LOL)
+-	Programs or files that are unknown have been created or installed
+-	Browser has unknown add-ins
+-	Files have become corrupted
+-	File size unexpectedly changes
+
+## Backup Types
+-	Full backup: All data is backed up. Takes longer but is most common.
+-	Incremental backup: Only the data that has changed since last backup. Faster.
+-	Differential backup: Similar to incremental, but continues to replicate all data that has changed since the previous full backup each time it is run after that. Medium speed.
+
+## Restore Types
+-	File restore: without the help of an administrator, file owners can search for, find, and restore files from a virtual machine (VM) backup. 
+-	Instant restore: Makes use of data generated by the backup-archive client in the form of snapshots.
+-	Full VM resotre: It allows both VM backups, whether its full or incremental. The complete virtual machine is returned to the state in was in when it was backed up. 
+-	Full VM instant restore: With full VM instant restore, the recovered VM is immediately usable, whether for validating the backed-up VM or restoring it to permanent storage. In read/write mode, the recovered VM is immediately available.
+## Understanding User Account Control (UAC)
+
+As a standard user in Windows 10, the following actions can be performed without requiring administrative permissions or rights:
+-	Install updates from Windows Update
+-	Install drivers from Windows Update or those that are included with the OS
+-	View Windows settings
+-	Pair Bluetooth devise with the computer
+-	Reset the network adapter and perform other network diagnostic and repair tasks
+
+# Knowledge Check
+
+Skip this was too easy bruh.
+
+
+# Flashcards
+Adware: Any software package that automatically plays, displays, or downloads advertisements to a computer after the software is installed or while the application is being used.
+
+AppLocker: Controls how users access and use programs and files, and extend the functionality originally provided by the Software Restriction policy found in earlier versions of Windows OS.
+
+Backdoor: A program that gives someone remote, unauthorized control of a system or initiates an unauthorized task.
+
+Bayesian Filters: Special algorithms which determine whether an email is considered spam.
+
+Bring Your Own Device (BYOD) policies: Defines the standards, restrictions, and procedures for end-users who have authorized access to company data from their person devices. The policy also includes hardware and related software that is not approved, owned, or supplied by the company. 
+
+Content Zones: Zones used to define and help manage security when visiting sites.
+
+Cookie: A piece of text by a user’s web browser. This file can be used for a wide range or purposes, including user identification, authentication, and storing site preferences and shopping cart contents.
+
+Line of Business Apps: These include apps that are critical to running the company business as well as apps that are unique to the company’s main business.
+
+Malicious Software (Malware): Software designed to infiltrate and adversely affect a computer system without the owner’s informed consent. It is usually associated with viruses, worms, Trojan horse, spyware, rootkits, and dishonest adware.
+
+Microsoft Account: Previously called Windows Live ID, is a unique account that is the combination of an email address and a password that you use to sign in to services like Outlook.com, MSN.com, Hotmail.com, OneDrive, Windows Phone, or Xbox Live.
+
+Microsoft Active Protection Service (MAPS): An online community that can help you decide how to respond to certain threat types and it serves as a resource to help stop the spread of new viruses and malware.
+
+Microsoft Baseline Security Analyzer (MBSA): Software tool released by Microsoft to determine the security state of a system by assessing missing security updates and leess-secure security settings within Microsoft Windows components such as Internet Explorer, IIS web server, and products such as Microsoft SQL Server and Microsoft Office macro settings.
+
+Microsoft Edge: BRO.
+
+Offline Files: Copies of network files that are stored on your computer so you can access them when you arrent connected to the network or when the network folder that contains the files is not connected.
+
+Pharming: An attack aimed at redirecting a website’s traffic to a bogus website.
+
+Phishing: Technique based on social engineering, where users are asked (usually via email or website) to supply personal information.
+
+Polymorphic virus: Mutates or changes code to avoid detection.
+
+Pop-up Windows: Component used on web pages that can be used as part of useful website controls but can also be used for annoying advertisements, and a few may attempt to load spyware or other malicious programs.
+
+Ransomware: One of the fastest growing forms of malware; encrypts data files and then demands payment.
+
+Read-Only Domain Controller (RODC): Contains a full replication of the domain database. It was created to be used in places where a domain controller is needed but where the physical security of the domain controller could not be guaranteed.
+
+Rootkit: Software or hardware device designed to gain administrator-level control over a computer system without being detected.
+
+Rule Collections: AppLocker uses rules and file properties – rules collections – to determine which programs and files are allowed to run on the computer. 
+
+Security Baseline: Collection of security settings. Security baselines should include Microsoft’s recommendations for configuring those settings. 
+
+Security Compliance Manager 4.0 (SCM 4.0): Free tool from Microsoft that can be used to quickly configure and manage your desktops, traditional data center, and private cloud using Group Policy and System Center Configuration Manager. It includes creating baselines for Windows Server 2016, Windows 10, and Internet Explorer 11.
+
+Sender Policy Framework (SPF): Email validation system designed to prevent email spam that uses source address spoofing.
+
+Spam: junk emails.
+
+Spyware: Malware that collects personal information, such as browsing habits.
+
+Trojan Horse: Executable program that appears as desirable or useful program BUT IT AINT BOY. Pirate bay basically.
+
+Universal Windows Platform (UWP) apps: Special type of Windows Store app that can be installed on multiple hardware platforms, such as an Intel tablet that is running Windows 10 Pro, an Xbox One, or a Windows 10 Phone. 
+
+User Account Control (UAC): Helps prevent unauthorized changes to your computer – and in doing so, it helps protect your system from malware.
+
+Virus: Can copy itself and infect a computer without the users consent or knowledge.
+
+Virus Hoax: Fake pop up messages. Probably from adware.
+
+Windows Defender: Basically a really poor anti virus. Can prevent, remove, and quarantine spyware.
+
+Windows Firewall: Helps prevent hackers or malicious software (such as worms) from gaining access to your computer through a network or the internet.
+
+Windows Server Update Services (WSUS): Software system that keeps your system updated with the newest Windows and Office updates.
+
+Windows Store: APPS.
+
+Windows Store for Business: PRIVATE APPS OR WHATEVER.
+
+Windows Update: Patches. Fixes. Recognition that Windows OS is bad.
+
+Worm: Self-replicating program. Bad.
+
+Zero-day attacks: Based on unknown or recently announced vulnerabilities. 
+
 
 
 
