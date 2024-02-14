@@ -1712,6 +1712,196 @@ Worm: Self-replicating program. Bad.
 
 Zero-day attacks: Based on unknown or recently announced vulnerabilities. 
 
+# The Basics of a Network
+
+The real essence of networks is communication – allowing one machine to communicate with another. 
+
+## Data Packets
+After establishing connection with a network, you need to send data. The first step is to identify where you want to send it. The second part is to format the data for transmission. All data is ultimately in binary form. This binary data is put into packets, all less than 65,000 bytes. 
+
+The first few bytes are the header. The header tells where the packet is going, where it came from, and how many more packets are coming as part of this transmission. A packet can have multiple headers. Most packets will have at least 3 headers. The IP header has information such as IP addresses for the source and destination. The TCP header has information such as port number. The Ethernet header has information such as the MAC address for the source and destination. If a packet is encrypted with Transport Layer Security (TLS), it will also have a TLS header.
+
+## IP Addresses
+Class A: 0-126 – Extremely large networks. No Class A network IP addresses are left. All have been used.
+
+Class B: 128-191 – Large corporate and government networks. All Class B IP addresses have been used.
+
+Class C: 192-223 – The most common group of IP addresses. Usually ISP have class C addresses.
+
+Class D: 224-247 – These are reserved for multicasting (transmitting different data on the same channel).
+
+Class E: 248-255 – Reserved for experimental use.
+
+
+Private IP addresses:
+-	10.0.0.10 – 10.255.255.255
+-	172.16.0.0 – 172.31.255.255
+-	192.168.0.0 to 192.168.255.255
+
+One of the roles a gateway router is to perform what is called network address translation (NAT). Using NAT, a router take the private IP address on outgoing packets and replaces it with the public IP address of the gateway router so the the packet can be routed through the Internet. 
+
+## Uniform Resource Locators
+You type in domain names that make sense to humans and those get translated into IP addresses. Your computer or your ISP must translate the name you typed in the URL into an IP address. The DNS protocol handles the translation process.
+
+Email works the same way as visiting websites. Your email client will seek out the address of your email server. Then your email client will use either POP3 to retrieve your incoming email or SMTP to send your outgoing email. 
+
+## MAC Addresses
+Every NIC in the world has a unique address that is represented by a six byte hexadecimal number. The Address Resolution Protocol (ARP) is used to convert the IP addresses to MAC addresses. 
+
+## Protocols 
+Different types of communications exist for different purposes. The different types of network communications are called protocols. A protocols is essentially an agreed upon method of communication.
+
+Popular protocols:
+-	FTP (20 & 21) – For transferring files between computers.
+-	SSH (22) – Secure Shell. A secure/encrypted way to transfer files.
+-	Telnet (23) – Used to remotely log on to a system. You can then use a command prompt or shell to execute commands on that system. Popular with network administrators.
+-	SMTP (25) – Sends email.
+-	WhoIS (43) – A command that queries a target IP address for information.
+-	DNS (53) – Translates URLs into web addresses.
+-	tFTP (69) – Quicker, but less reliable form of FTP.
+-	HTTP (80) – Displays web pages.
+-	POP3 (110) – Retrieves email.
+-	NNTP (119) – Used for network news groups (Usenet newsgroups). You can access these groups over the web via google.
+-	NetBIOS (137, 138, 139) – An older Microsoft protocol for naming systems on a local network.
+-	IRC (194) – Chat rooms.
+-	HTTPS (443) – HTTP encrypted with SSL or TLS.
+-	SMB (445) – Used by Microsoft Active Directory. 
+-	ICMP (No specific port) – These are simply packets that contain error messages, informational messages, and control messages. 
+
+# Knowledge Check
+List the Class:
+-	C – the most common group of IP addresses.
+-	B – Large corporate and government networks.
+-	D – Reserved for multicast groups.
+-	A – Extremely large networks.
+-	E – Reserved for experimental use.
+
+Indicate if each of the given statements about IPv6 is true or false:
+-	True - IPv6 link/machine-local IP addresses all start with fe80::
+-	False - The loopback address for IPv6 can be written as ::/126
+-	True - It utilizes a hex numbering method to avoid long addresses.
+-	True - It does not use subnetting but instead uses CIDR.
+
+-	Telnet – Used to remotely log on to a system.
+
+-	HTTP – Displays web pages.
+
+-	WhoIS – A command that queries a target IP address for information.
+
+-	DNS – Translates URLs into web addresses.
+
+-	FTP – Transfers files between computers.
+
+
+# Basic Network Utilities
+
+## ipconfig
+Gives some information about your connection to a network or the Internet. Most importantly you can find out your own IP address and default gateway.
+
+## ping
+Used to send test packet, or echo packet, to a machine to find out whether the machine is reachable and how long the packet takes to reach the machine.
+
+## tracert
+Not only tells you whether the packet got to the destination but also tells you all intermediate hops it took to get there.
+
+## netstat
+Tells you what connections your computer currently has.
+
+# Knowledge Check
+-	Ipconfig – Displays the network configuration of a computer and refreshes DHCP and DNS settings.
+-	Ping – Sends a test packet to a machine to find out whether the machine is reachable and how long the packet takes to reach the machine. 
+-	Tracert – Determines whether the packet reached the destination, how long it took, and all the intermediate hops it took to get there.
+-	Netstat – Discovers the network connections currently present on a computer.
+
+# The OSI Model
+-	Application (POP, SMTP, DNS, FTP, Telnet) – This layer interfaces directly to applications and performs common application services for the application process.
+-	Presentation (Telnet, Network Data Representation (NDR), Lightweight Presentation Protocol (LPP).
+-	Session (NetBIOS) – The session layer provides the mechanism for managing the dialogue between end-user application processes. 
+-	Transport (TCP, UDP) – This layer provides end-to-end communication control.
+-	Network (IP, ARP, ICMP) – This layer routes the information in the network.
+-	Data Link (SLIP, PPP) – This layer describes the logical organization of data bits transmitted on a particular medium. The data link layer is divided into two sublayers: the Media Access Control layer (MAC) and the Logical Link Control layer (LLC).
+-	Physical (IEEE 1394, DSL, ISDN) – This layer describes the physical properties of of the various communications media, as well as the electrical properties and interpretation of the exchanged signals. In other words, the physical layer is the actual NIC, Ethernet cable, and so forth. 
+# Knowledge Check
+
+-	Transport – TCP, UDP
+-	Network – IP, ARP, ICMP
+-	Presentation – Telnet, NDR, LPP
+-	Application – POP, SMTP, DNS, FTP
+-	Session – NetBIOS
+-	Data Link – SLIP, PPP
+-	Physical – IEEE 1394, DSL, ISDN
+
+# Classifications of Threats
+Categories of Attack:
+-	Intrusion 
+-	Blocking
+-	Malware
+
+## Malware
+Probably the most common threat to any system. Created to spread on its own. The most obvious example is a computer virus. 
+
+## Compromising System Security – Intrusions 
+Intrusions are attacks that are actually trying to intrude into the system. Intrusion attacks are designed to gain access to a specific targeted system and are commonly referred to as hacking. Hackers call this type of attack “cracking”, which means intruding onto a system without permission. Using security flaws or social engineering.
+
+## Denial of Service
+The attacker does not actually access the system, but rather simply blocks access to the system for legitimate users. Characterized by an explicit attempt by attackers to prevent legitimate users of a service from using that service. Extremely common, only second to malware. 
+
+# Knowledge Check
+-	Intrusion: Includes attacks meant to breach security and gain unauthorized access to a system.
+-	Blocking: Includes attacks designed to prevent legitimate access to a system.
+-	Malware: Spreads on its own without the involvement of the creator.
+
+# Threat Assessment 
+The following numerical scale can provide a basic overview of a system’s security requirements.
+
+Three factors are considered (attractiveness, information content, and security devices present). Each of those factors is given a numeric designation between 1 and 10. The first two are added together, and then the third number is subtracted. The final score ranges from -8 (very low risk, high security) to 19 (very high risk, low security); the lower the number the less vulnerable the system, the higher the number the greater the risk. The best rating for a system that:
+-	Receives a 1 in attractiveness to hackers (that is, a system that is virtually unknown, has no political or ideological significance, etc).
+-	Receives a 1 in informational content (that is, a system that contains no confidential or sensitive data).
+-	Receives a 10 in security ( that is, a system with an extensive layered, proactive security system complete with firewalls, ports blocked, antivirus software, IDS, antispyware, appropriate policies, all workstations and servers hardened, etc.)
+# Knowledge Check
+
+Factors while accessing the threat level for an organization:
+-	Attractiveness of the system to the hacker
+-	 Number of remote connections to the system
+-	Nature of the information the system stores
+
+# Security Terminology
+-	Firewall – A barrier between a network and the outside world.
+-	Access control – The aggregate of all measures taken to limit access to resources.
+-	Non-repudiation – Any technique that is used to ensure that someone performing an action on a computer cannot falsely deny that they performed that actions. 
+-	Least privileges – Only assign the minimum privileges required for that person to do his job, no more.
+-	CIA triangle – Confidentiality, integrity, and availability.
+
+# Knowledge Check
+-	Access control – The aggregate of all measures taken to limit privileges of unauthorized personnel to a resource.
+-	Non-repudiation – A technique used to ensure that someone performing an action on a computer cannot falsely deny their action.
+-	Least privilege – A concept that dictates that the users of a system should only have the level of access necessary to carry out their tasks. 
+
+# Choosing a Network Security Approach
+## Perimeter Security Approach
+Focus might include firewalls, proxy servers, password policies, and any technology or procedure that makes unauthorized access of the network less likely. 
+
+## Layered Security Approach
+A layered security approach is one which not only is the perimeter secured, but the individual systems within the network are also secured. All servers, workstations, routers, and hubs within the network are secure.
+
+## Hybrid Security Approach
+Mixture of security approaches.
+
+# Knowledge Check
+
+-	Perimeter – An adequate approach for small organization that do not store sensitive data.
+-	Perimeter – A bulk of security efforts are focused on firewalls, proxy servers, password policies, and any technology or procedure.
+-	Layered – Secures the perimeter of the network as well as individual systems within the network.
+-	Hybrid – Considers approaches to computer security along a Cartesian coordinate system. 
+
+# Network Security and the Law
+
+# Knowledge Check
+
+-	Computer Security Act: Requires government agencies to identify and improve the privacy of sensitive systems.
+-	OMB Circular A-130: Describes requirements for developing standards for computer systems and for records held by government agencies. 
+-	Sarbanes-Oxley: Governs how publicly traded companies store and report on financial data.
+-	HIPPA: Provides data privacy and security provisions for safeguarding medical information.
 
 
 
