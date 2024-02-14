@@ -1903,6 +1903,73 @@ Mixture of security approaches.
 -	Sarbanes-Oxley: Governs how publicly traded companies store and report on financial data.
 -	HIPPA: Provides data privacy and security provisions for safeguarding medical information.
 
+# Understanding Denial of Service Attacks
+
+## Dos in Action
+Lab kinda or whatever:
+
+Simulate a DoS attack by using the `ping` command.
+
+The syntax is: 
+```ping ADDRESS -l 65000 -w 0 -t```
+
+This does the following:
+
+-	`-w` option determines how many milliseconds the ping utility will wait for a response from the target. In this case, it is set to `-0`, so it does not wait at all.
+-	`-t` option instructs the ping utility to keep sending packets until explicitly told to stop.
+-	`-l` option allows users to change the size of the packet you can send. We have set this to be as large as it can.
+
+One machine will likely cause not effect on overloading a server by several could tax the machines capacity and make it slower or not respond. 
+
+A DoS attack that is launched from several different machines is called a distributed denial of services (DDoS).
+
+## SYN Flood
+
+This particular attack depends on the hacker’s knowledge of how connections are made to a server. When a session is initiated between the client and server in a network using the TCP protocol, a small buffer space in memory is set aside on the server to handle the “hand-shaking” exchange of messages that sets up the session. The session-establishing packets include a SYN field that identifies the sequence in the message exchange. 
+
+A SYN flood attempts to subvert this process. In this attack an attacker sends a number of connection requests very rapidly and then fails to respond to the reply that is sent back by thee server. In other words, the attacker requests connections, and then never follows through with the rest of the connection sequence. This has the effect of leaving connections on the server half open, and the buffer memory allocated for them is reserved and not available to other applications. 
+
+## Smurf Attack
+
+The Smurf attack is a popular type of DoS attack. In the Smurf attack, an ICMP packet is sent out to the broadcast address of a network, but its return address has been altered to match one of the computers on that network, most likely a key server. All the computers on the network will then respond by pinging the target computer. 
+
+## Ping of Death
+
+The Ping of Death (PoD), perhaps the simplest and most primitive form of DoS attack, is based on overloading the target system. TCP packets are of limited size. In some cases simply sending a packet that is too large can shut down a target machine. 
+
+## UDP Flood
+
+UDP (User Datagram Protocol) is a connectionless protocol and it does not require any connection setup procedure to transfer data. TCP packets connect and wait for the recipient to acknowledge receipt before sending the next packet. Each packet is confirmed. UDP packets simply send the packets without confirmation. This allows packets to be sent much faster, making it easier to perform a DoS attack.
+
+A UDP flood occurs when an attack sends a UDP packet to a random port on the victim system. When the victim system receives a UDP packet, it will determine what application is waiting on the destination port. When it realizes that no application is waiting on the port, it will generate an ICMP packet of destination unreachable to the forged source address. 
+
+## ICMP Flood
+
+Simply another name for a ping flood using ICMP packets.
+
+
+## DHCP Starvation
+If enough requests flood onto the network, the attacker can completely exhaust the address space allocated by the DHCP servers for an indefinite period of time. There are tools such as Gobbler that will do this for you. Preventing incoming DHCP requests from outside the network will prevent this.
+
+## HTTP Post DoS
+An HTTP Post DoS attack sends a legitimate HTTP post message. Part of the post message is the ‘content-length’. This indicates the size of the message to follow. In this attack, the attacker then sends the actual message body at an extremely slow rate. The web server is then “hung” waiting for that message to complete. 
+
+## PDoS
+A permanent denial of service (PDoS) is an attack that damages thee system so badly that the victim machine needs either an operating system reinstall or even new hardware. This is sometimes called phlashing.
+
+## Distributed Reflection Denial of Service
+As previously stated, distributed denial of service attacks are becoming more common. Most such attacks rely on getting various machines (servers or workstations) to attack the target. The distributed reflection denial of service (DRDoS) is a special type of DoS attack. Rather than getting computers to attack the target, this method tricks Internet routers into attack a target.
+
+Many of the routers on the Internet backbone communicate on port 179. This attack exploits that communication line and gets routers to attack a target system. What makes this attack particularly wicked is that it does not require the routers in question to be compromised in any way. Instead the hacker sends a stream of packets to the various routers requesting a connection. The packets have been altered so that they appear to come from the target system’s IP address. The routers respond by initiating connections with the target system. What occurs is a flood of connections from multiple routers, all hitting the same target system. This has the effect of rendering the target system unreachable. 
+
+# Knowledge Check
+
+-	SYN flood – An attacker sends a number of connection requests very rapidly and then fails to respond to the reply that is sent back by the server.
+-	Smurf – An ICMP packet with the intended victim’s spoofed source IP is broadcast to a computer network using an IP broadcast address.
+-	Ping of Death – The most primitive form of DoS attack based on overloading the target system with TCP packets.
+-	UDP flood – Sends the packets without confirmation which allows packets to be sent much faster.
+-	PDoS – Damages the system so badly that the victim machine needs either an operating system reinstall or even new hardware.
+
 
 
 
