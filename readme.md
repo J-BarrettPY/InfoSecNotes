@@ -1971,6 +1971,146 @@ Many of the routers on the Internet backbone communicate on port 179. This attac
 -	PDoS – Damages the system so badly that the victim machine needs either an operating system reinstall or even new hardware.
 
 
+# Fundamentals of Firewalls
+
+-	Packet filtering
+-	Stateful packet filtering
+-	User authentication
+-	Client application authentication
+
+At minimum, firewalls will filter incoming packets based on packet size, source IP, protocol, and destination port. 
+
+Both Linux and Windows have a simple firewall built into the operating system.
+
+## Packet Filtering Firewall
+
+-	Most basic firewall.
+-	Each incoming packet is examined. 
+-	Only those that meet a criteria you set will pass through.
+-	Windows and Linux are packet filtering firewalls.
+
+Disadvantages:
+-	Do not actually examine the packet or compare it to previous packets; therefore they are quite susceptible to either a ping flood or SYN flood.
+-	Do not offer any user authentication.
+-	Only looks at packet header for information.
+
+To configure packet filtering firewall, you need to establish appropriate filtering rules. A set of a given firewall would need to cover the following:
+-	What types of protocols to allow (FTP, SMTP, POP3, etc.)
+-	What source ports to allow
+-	What destination ports to allow
+-	What source IP addresses to allow (you can block certain IP addresses if you wish)
+
+## Stateful Packet Inspection
+
+-	Improved on basic packet filtering firewall.
+-	Examines each packet, denying or permitting access based not only on the examination of the current packet, but also on data derived from previous packets in the conversation. 
+-	Less susceptible to ping floods and SYN floods, as well as spoofing.
+-	They can tell whether the packet is part of an abnormally large stream of packets from a particular IP address, thus indicating a possible DoS attack in progress.
+-	They can tell whether the packet has a source IP address that appears to come from inside the firewall, thus indicating IP spoofing is in progress.
+-	They can also look at the actual contents of the packet, allow for some very advanced filtering capabilities.
+
+## Application Gateway
+
+-	Program that runs on a firewall.
+-	Other than looking at the protocol and port the packet is using, an application gateway will examine the client application and the server-side application to which it is trying to connect.
+-	Enables the administrator to allow access only to certain specified types of applications, such as web browsers or FTP clients.
+-	Susceptible to various flooding attacks (SYN flood, ping flood, etc).
+
+## Circuit Level Gateway
+
+-	Similar to application gateways but are more secure and generally implemented on high-end equipment. 
+-	Authenticates users first.
+-	User’s logon ID and password are checked and the user is granted access before the connection to the router is established.
+-	Verification must happen before any further communication can take place.
+-	Difficult to configure because each client must be set up to have a circuit connection with the firewall.
+
+## Hybrid Firewalls
+
+-	User a mix of approaches.
+-	One example could be a firewall which uses both circuit level gateway and stateful packet filtering.
+
+## Blacklisting/Whitelisting
+
+-	Supported feature by many firewalls.
+-	Blacklisting: users can browse any website or resource, except those on the prohibited list.
+-	Whitelisting: blocking users from visiting any website or resource except those on an approval list.
+
+# Implementing Firewalls
+Most widely used configurations:
+-	Network host-based
+-	Dual-homed host
+-	Router-based firewall
+-	Screened host
+
+## Host-based
+In host-based scenario the firewall is a software solution installed on an existing machine with an existing operating system. Concern is that no matter how good the firewall solution is, it is contingent upon the underlying operating system. It is critical that the machine hosting the firewall have a hardened operating system. Hardening the operating system refers to taking several security precautions including:
+-	Ensuring all patches are updated.
+-	Uninstalling unneeded applications or utilities.
+-	Closing unused ports.
+-	Turning off all unused services.
+
+## Dual-Homed Hosts
+-	Running on a server with at least two network interfaces. 
+-	Most firewalls today are implemented in actual routers.
+-	In dual-homed hosts the firewall is running on a separate server attached to the network.
+-	Simply an expanded version of the network host firewall implementation. This option is relatively simple and inexpensive but is dependent on the underlying operating system.
+
+## Router-Based Firewall
+-	Often first layer of protection.
+-	Usually uses packet filtering. 
+-	Usually preconfigured by the vendor based on customers needs.
+-	Easy to setup, usually just plug it in.
+
+## Screened Hosts
+-	Combination of firewalls.
+-	Uses a  bastion host and a screening router.
+-	Creates a dual firewall solution that is effective at filtering traffic.
+-	Bastion host might be an application gateway and the router might be packet screener (or vice versa).
+-	Similar concept to dual-homed host but uses router and server instead of two servers.
+
+# Knowledge Check
+
+Indicate if each of the given statements about the DMZ is true or false:
+
+-	True: It is a type of firewall that consists of two firewalls with an intermediate zone between them. 
+-	True: It has an additional layer of protection between Internet-facing services and back-end corporate resources. 
+-	False: It hides the internal network from the outside world. 
+
+-	Host-based: A firewall installed on each individual server that controls incoming and outgoing network traffic.
+
+-	Screened host: A combination of firewalls in which any security flaw or misconfiguration affects both firewalls. 
+
+-	Dual-homed host: A firewall that lies between an untrusted network and trusted network to provide secure access.
+
+-	Router-based: An ideal solution for the firewall novice that can be preconfigured by the vendor based on the customer's needs.
+
+
+# Using Proxy Servers
+
+A proxy server is often used with a firewall to hide the internal network’s IP address and present a single IP address (its own) to the outside world. A proxy server is a server that sits between a client application, such as a web browser, and a real server. Proxy servers prevent hackers from seeing the IP addresses of internal machines.
+Using a proxy servers means that when a machine inside the network visits a website, the website will only detect that the proxy server visited it. Even if dozens of different machines on the network visit a site that logs the IP addresses of incoming connections, they will all be logged with the same IP address – that of the proxy server.
+
+Hiding of the network is a very valuable service because knowledge of internal IP addresses can be used to execute certain forms of attack. 
+
+## The WinGate Proxy Server
+
+WinGate is an inexpensive commercial product that also offers a free trial download. This product has all of the standard features of a proxy server including:
+-	Internet connection sharing.
+-	Hiding internal IP addresses.
+-	Allowing virus scanning.
+-	Filtering of sites.
+
+## NAT
+
+For many organizations, proxy servers have been superseded by a newer technology known as network address translation (NAT). NAT translates internal addresses and external addresses to allow communication between network computers and outside computers. The outside sees only the address of the machine running NAT (often the firewall). 
+
+NAT also provides significant security because by default it allows only connections that are originated on the inside network. This means that a computer inside the network can connect to an outside web server, but an outside computer cannot connect to a web server inside the network. 
+
+
+
+
+
+
 
 
 
