@@ -2107,6 +2107,61 @@ For many organizations, proxy servers have been superseded by a newer technology
 NAT also provides significant security because by default it allows only connections that are originated on the inside network. This means that a computer inside the network can connect to an outside web server, but an outside computer cannot connect to a web server inside the network. 
 
 
+# Using Single Machine Firewalls
+
+-	Single machine firewall solution running on an individual PC (or even a server).
+-	Often used to protect computers.
+
+Single machine firewalls have many things in common:
+-	These can be packet filtering, SPI, or even application gateways.
+-	All are software based.
+-	Most are easy to configure and set up.
+
+Designed with the home user in mind.
+
+# Knowledge Check
+
+Features of single machine firewalls:
+-	Easy to configure and set up
+-	Run on a database or web server
+-	Low cost product
+-	Software based
+
+# Windows 10 Firewall
+
+-	Stateful packet inspection firewalls.
+-	Can set different rules for outbound and inbound traffic.
+-	Can set rules for port, programs, custom rules, or one of the many predefined rules that Microsoft has for you to select from.
+-	Can choose to only allow via secured by IPSec.
+-	Can set rules for three areas or profiles: Doman, Public, and Private.
+
+Administrators should always follow these rules with all packet filtering firewalls:
+-	If you do not explicitly need a port, then block it. 
+-	Unless you have a compelling reason not to, always block ICMP traffic because many utilities such as ping, tracert, and many port scanners use ICMP packets. 
+-	Occasionally, I would suggest continuing to write out acronyms such as ICMP just to make sure this is reinforced.
+
+# Linux Firewalls
+
+## Iptables
+
+-	First widely used Linux firewall was called ipchains.
+-	On most Linux systems, iptables is installed as /usr/sbin/iptables.
+-	Iptables firewall is made up of three different kinds of objects: tables, chains, and rules.
+
+There are actually three tables and each has some standard rule chains in it. You can, of course, add your own custom rules. The three tables and their standard chains are as follow:
+
+-	Packet Filtering: This table is the essential part of the firewall. It is a packet filtering firewall and it contains three standard chains: INPUT, OUTPUT, and Forward. The INPUT chain processes incoming packets, and the OUTPUT chain processes traffic sent out from the machine. If the firewall system is also acting as a router, only the FORWARD chain applies to routed packets.
+-	Network address translation: This table is used for performing network address translation on outbound traffic that initiates a new connection. This is used only if your machine is serving as a gateway or proxy server. 
+-	Packet Alteration: This table is used only for specialized packet alteration. It is often called the mangle table because it alters, or mangles, packets. It contains two standard chains. This table might not even be needed for many standard firewalls.
+
+## Symantec Norton Firewall
+
+-	Personal single machine firewall.
+-	Pop-up ad blocking and privacy protection.
+-	Accomplishes by preventing information about you from being transmitted via the browser without your knowledge.
+-	Easy to user UI.
+-	Can scan websites for vulnerabilities.
+
 
 
 
