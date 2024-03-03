@@ -2164,6 +2164,71 @@ There are actually three tables and each has some standard rule chains in it. Yo
 
 
 
+# Understanding IDS Concepts
+
+## Preemptive Blocks
+-	Sometimes called banishment vigilance.
+-	Done by noting any danger signs of impending threats and then blocking the user or IP address from which they originate.
+-	Examples: blocking an address which is doing recon or foot printing.
+-	Can be complicated. Could potentially block legitimate user by mistake.
+-	Alerts administrator and human administrator will make decision whether to continue to block.
+
+## Anomaly Detection
+-	Software that detects intrusion attempts and notifies administrators.
+-	Searches for suspicious behavior.
+-	Compares observed activity with previous expected normal usage profiles.
+-	Locates anomalies.
+-	Anomaly is detected by:
+o	Threshold monitoring
+o	Resource profiling
+o	User/group work profiling
+o	Executable profiling
+
+### Threshold Monitoring
+-	Presets acceptable behavior levels and observes whether these levels are exceeded.
+-	Simple as failed login attempts to complex as monitoring the time a user is connected and the amount of data that user downloads.
+-	Can be difficult to establish proper threshold values or the proper time frames at which to check those threshold values.
+-	Can result in high rate of false positives.
+
+### Resource Profiling
+-	Measures system-wide use of resources and develops a historic usage profile.
+-	Monitors how a user normally utilizes system resources.
+-	Triggers if abnormal amount of resources are being used.
+-	Can be difficult to interpret the meaning of system and resource usage, leading to false positives. 
+
+### User/Group Work Profiling
+-	Maintains individual work profiles about users and groups.
+-	Users and groups are expected to adhere to there profiles.
+-	If the user changes their activity, their work profile will update to reflect.
+-	Short-term and long-term profiles.
+-	Can be difficult to profile irregular or dynamic user base.
+-	Profiles defined too broadly enable any activity to pass.
+
+### Executable Profiling
+-	Seeks to measure and monitor how programs use system resources with attention to those whose activity cannot always be traced to a specific originating user.
+-	Malware is addressed by profiling how system objects such as files and printers are normally used not only by users but also by other system objects on part of the users.
+
+# Knowledge check
+Indicate if each of the given statements about preemptive blocking is true or false.
+
+-	True: It is sometimes called as banishment vigilance and seeks to prevent intrusions before they occur.
+-	True: It may block a legitimate user by mistake.
+-	False: It involves actual software that detects intrusion attempts and notifies the administrator.
+
+
+# IDS Components and Processes 
+-	An activity is an element of a data source that is of interest to the operator.
+-	The administrator is the person responsible for organizational security.
+-	A sensor is the IDS component that collects data and passes it to the analyzer for analysis.
+-	The analyzer is the component or process that analyzes the data collected by the sensor.
+-	An alert is a message from the analyzer indicating that an event of interest has occurred.
+-	The manager is the part of the IDS used to manage, for example a console.
+-	Notification is the process or method by which the IDS manager makes the operator aware of an alert.
+-	The operator is the person primarily responsible for the IDS. This is often the administrator.
+-	An event is an occurrence that indicate a suspicious activity may have occurred.
+-	The data source is the raw information that the IDS uses to detect suspicious activity.
+
+
 
 
 
