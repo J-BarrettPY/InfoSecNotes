@@ -2229,6 +2229,18 @@ Indicate if each of the given statements about preemptive blocking is true or fa
 -	The data source is the raw information that the IDS uses to detect suspicious activity.
 
 
+# Understanding and Implementing Honeypots
+-	Specter – honeypot solution.
+-	Works by appearing to run a number of services common to network servers.
+
+## Symantec Decoy Server
+-	Appeared to be a real server, such as simulating incoming and outgoing email traffic.
+-	Decoy server acts as a honeypot.
+
+
+## Intrusion Deflection
+-	Makes a subsystem look more attractive to bring attacker’s attention there.
+
 
 
 
