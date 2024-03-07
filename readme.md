@@ -2242,9 +2242,68 @@ Indicate if each of the given statements about preemptive blocking is true or fa
 -	Makes a subsystem look more attractive to bring attacker’s attention there.
 
 
+# Encryption Fundamentals
+
+### Caesar Cipher
+-	Oldest encryption – believed to be used by the Roman emperors.
+-	Shifts a few characters on the alphabet to hide messages.
+
+### ROT 13
+-	Single alphabet substitution cipher. All characters are rotated 13 characters through the alphabet.
+
+### Atbash Cipher
+-	Reverses the alphabet.
+
+### Multi-Alphabet Substitution
+-	Slightly improved version of Caesar cipher.
+-	Multiples numbers by which to shift letters.
+
+### Rail Fence
+-	May be the most widely known transposition cipher.
+-	Takes the message you wish to encrypt and alters each letter on a different row.
+
+### Vigenere
+-	Polyalphabetic – uses multiple shifts.
+
+### Enigma 
+-	Rotors, or disks, that were arranged in a circle with 26 letters on them.
+-	The rotors were lined up.
+-	Mechanical polyalphabetic cipher.
+
+### Binary Operations
+-	Just binary
+-	Uses AND, OR, and XOR
 
 
+# Learning About Modern Encryption Methods
 
+### Symmetric Encryption
+-	Data Encryption Standard (DES)
+o	DES uses a symmetric key system.
+o	Data is divided into 64-bit blocks, and those blocks are then transposed.
+o	Transposed data is then manipulated by 16 separate rounds of encryption, involving substitutions, bit-shifting, and logical operations using a 56-bit key.
+o	Finally, the data is transposed one last time.
+-	Blowfish
+o	Symmetric block cipher.
+o	Uses a single key to both encrypt and decrypt the message and works on “blocks” of the message at a time.
+-	AES
+o	Uses Rijndael algorithm.
+o	Three key sizes: 128, 192, and 256.
+o	Uses a block cipher.
+-	Key Stretching
+o	PBKDF2: applies a function like a hash or HMAC to the password or passphrase along with salt to produce a derived key.
+o	bcrypt: is used with passwords, and it essentially uses a derivation of the Blowfish algorithm, converted to a hashing algorithm, to hash a password and add salt to it.
+-	Public Key Encryption
+o	RSA
 
+No encryption code is unbreakable. Every encryption code can be broken.
 
+# Understanding Digital Signatures and Certificates
+-	Digital signature is used to guarantee who send a message (non-repudiation).
+-	Digital signature reverse the asymmetric encryption process.
+-	Sender encrypts something with his or her private key.
+-	If the recipient is able to decrypt that with the sender’s public key, then it must have been sent by the person.
 
+### Digital Certificates
+-	Contains a public key and some means to verify whose public key it is.
+-	Certificate authority issues digital certificates.
